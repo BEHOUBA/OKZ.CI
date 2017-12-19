@@ -1,0 +1,47 @@
+#category-boxes{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.cat-box{
+    background-color: white;
+    height: 400px;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+.cat-box:hover{
+    border: 1px solid rgb(216, 79, 79);
+}
+
+.cat-icon{
+    padding-top: 20px;
+}
+
+.cat-icon img{
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 50%;
+    background-color: rgb(216, 79, 79);
+}
+.cat-icon img:hover{
+    background-color: rgb(243, 135, 135);
+}
+
+.sub-cat ul{
+    list-style: none;
+    padding: 0px;
+
+}
+.sub-cat ul li{
+    margin: 10px;
+}
+
+.sub-cat ul li a, .cat-icon a{
+    text-decoration: none;
+    color: rgb(216, 79, 79);
+}
+
+.sub-cat ul li a:hover, .cat-icon a:hover{
+    color: rgb(243, 135, 135);
+}

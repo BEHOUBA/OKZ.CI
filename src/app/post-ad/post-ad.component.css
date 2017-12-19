@@ -1,0 +1,44 @@
+#new-post{
+    margin: 80px auto;
+    width: 600px;
+    height: 80%;
+    padding: 40px 5px;
+    background-color:rgb(216, 79, 79);
+    border: 8px solid rgb(185, 49, 49);
+}
+.title, .agreement label{
+    margin: 20px;
+    text-align: center;
+}
+
+.required{
+    color: red;
+    font-size: 20px;
+}
+ul{
+    padding: 5px 20px;
+}
+.input-val *{
+    width: 100%;
+    padding: 10px;
+}
+li {
+    margin-top: 10px;
+    padding: 5px;
+    display: list-item;
+    list-style-type: none;
+}
+.upload-img {
+    margin: 5px;
+    padding: 5px;
+    height: 50px;
+}
+@media screen and (max-width: 670px ) {
+   #new-post{
+       width: 90%;
+       padding: 10px 5px;
+   }
+   ul{
+    padding: 5px 5px;
+    }
+}
