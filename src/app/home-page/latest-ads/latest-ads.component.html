@@ -5,23 +5,22 @@
     <p>Découvrez et explorez de nouvelles Annonces près de chez vous et voyez ce qui se passe !!!</p>
   </div>
   <div class="latest-ads-items row">
-    <div class="col-sm-6 col-md-3" *ngFor="let x of adInfo">
-      <a routerLink="/article/:id">
+    <div class="col-sm-6 col-md-3 py-3" *ngFor="let x of adInfo">
+      <a routerLink="/article/:id" class="card py-2">
         <div class="ad-item-box-y">
-            <div class="ad-img">
-              <img class="ad-img-pic" src="../assets/images/laptop.jpg" alt="image de l'annonce">
+            <div class="">
+              <img class="card-img-top" src="../assets/images/laptop.jpg" alt="image de l'annonce">
               <span class="ad-location">Abidjan</span>
               <span class="ad-duration">Il y a 1 heure</span>
               <span class="ad-verified"><i class="fa fa-check-circle fa-lg" aria-hidden="true"></i></span>
               <span class="ad-condition">OCCASION</span>
             </div>
-            <div class="ad-title text-center">
-              <h3>Ads title goes here</h3>
+            <div class="text-center card-body">
+              <h3 class="card-text">Ads title goes here</h3>
+                <h4>100.000 FCFA</h4>
+                <p>(NON NEGOCIABLE)</p>
             </div>
-            <div class="ad-price text-center">
-              <h4>100.000 FCFA</h4>
-              <p>(NON NEGOCIABLE)</p>
-            </div>
+            
         </div>
       </a>
     </div>
@@ -29,4 +28,3 @@
 <div class="text-center btn-see-more">
   <button class="btn btn-primaryds" >VOIR PLUS</button>
 </div>`
-<app-footer></app-footer>

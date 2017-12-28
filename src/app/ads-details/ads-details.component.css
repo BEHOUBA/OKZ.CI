@@ -10,6 +10,14 @@
 
 }
 
+.checked{
+    color: rgb(248, 248, 45);
+}
+.seller{
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 1fr 3fr;
+}
 .seller-pic{
     width: 55px;
     height: 55px;
@@ -21,6 +29,14 @@
 }
 .title h3{
     font-size: 20px;
+}
+.title ul{
+    list-style: none;
+    padding-left: 0px;
+}
+.title li{
+    display: inline;
+    padding-right: 15px;
 }
 img{
     width: 100%;
@@ -44,11 +60,19 @@ img{
     cursor: pointer;
     background-color: rgb(230, 86, 86);
 }
-.btn-bids{
+.btn-bids, #btn-timer{
     width: 100%;
-    padding: 15px;
+    padding: 10px;
     border: 1px solid rgb(110, 85, 85);
     background-color: rgb(170, 170, 211);
+}
+.btn-price{
+    width: 100%;
+    padding: 5px;
+    border: 1px solid rgb(110, 85, 85);
+    background-color: rgb(170, 170, 211);
+    font-size: 30px;
+    margin-bottom: 10px;
 }
 .btn-bids:hover{
     cursor: pointer;
@@ -75,7 +99,16 @@ img{
     text-decoration: none;
     color: rgb(59, 57, 57);
 }
-
+.ad-social a:hover{
+    cursor: pointer;
+}
+.add-map{
+    padding: 5%;
+}
+agm-map{
+    width: 100%;
+    height: 280px;
+}
 #loader{
     position: absolute;
     top: 45%;
@@ -99,7 +132,7 @@ img{
 }
 
 
-@media only screen and (min-width: 570px){
+@media only screen and (min-width: 800px){
     .wrapper{
         display: grid;
         margin: 30px 20px;
@@ -118,7 +151,10 @@ img{
     .wrapper > div{
         background-color: rgb(154, 113, 185);
     }
-    
+    .seller p{
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
     .add-map{
         grid-column-start: 2;
         /* autoprefixer: off */
@@ -127,7 +163,10 @@ img{
         /* autoprefixer: off */
         grid-row-end: 5;
     }
-
+    agm-map{
+        width: 100%;
+        height: 80%;
+    }
     #loader{
         position: absolute;
         top: 45%;

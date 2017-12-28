@@ -1,37 +1,55 @@
 <app-nav-bar></app-nav-bar>
 <div class="wrapper">
   <div class="title">
-    <h3>Honda Civic 2017 Type R (NEW)</h3>
+    <h3>Honda Civic 2017 Type R</h3>
+      <ul>
+        <li><i class="fa fa-map-marker" aria-hidden="true"></i> city name</li>
+        <li><i class="fa fa-clock-o" aria-hidden="true"></i> le 12 Decembre a 15h</li>
+      </ul>
   </div>
-  <div class="buy-opt">
+  <div class="seller">
     <div class="seller-pic">
       <img src="https://static.pexels.com/photos/160933/girl-rabbit-friendship-love-160933.jpeg" alt="">
     </div>
+    <div>
+      <p>Mis en ligne par  <a href="">JHON DOE</a></p>
+      <p>Reputation: 
+        <span *ngFor="let star of ratingStars" class="fa fa-star fa-lg" [class.checked]="star" ></span>
+      </p>
+    </div>
   </div>
-  <div class="img-slider carousel slide" data-ride="carousel" id="img-slider">
+  <div class="carousel slide" data-ride="carousel" id="img-slider">
     <ul class="carousel-indicators">
       <li *ngFor="let imgUrl of imgUrls; index as i" data-target="#img-slider" data-slide-to="i"></li>
     </ul>
     <div class="loader"></div>
   <div class="carousel-inner">
       <div *ngFor="let imgUrl of imgUrls; index as i"  class="carousel-item" [class.active]="i === 0">
-        <img [src]="imgUrl" alt="" [id]="i">
+        <img class="d-block w-100" [src]="imgUrl" >
         <div class="carousel-caption">
           <h3>Titre de l'image</h3>
           <p>Description de l'image</p>
         </div>
       </div>
     </div>
-    <a class="carousel-control-prev" href="#img-slider" data-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
+    <a class="carousel-control-prev" href="#img-slider" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Prev</span>
     </a>
-    <a class="carousel-control-next" href="#img-slider" data-slide="next">
-      <span class="carousel-control-next-icon"></span>
+    <a class="carousel-control-next" href="#img-slider" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
     </a>
   </div>
   <div class="ad-infos">
     <div>
-        <p>CONDITION: </p>
+        <button id="btn-timer">{{timer}}</button>
+    </div>
+    <div>
+      <button class="btn-price">500€</button>
+    </div> 
+    <div>
+        <p>CONDITION:</p>
     </div>
     <div>
         <p>MARQUE: </p>
@@ -41,12 +59,6 @@
     </div>
     <div>
       <p>LOCATION: </p>
-    </div>
-    <div>
-        <p>SELLER: </p>
-    </div>
-    <div>
-        <P>RATING: </P>
     </div>
     <div>
       <button class="btn-show-number">CLICK TO SHOW THE NUMBER</button> 
@@ -62,13 +74,20 @@
     </div>
     <div class="ad-social">
       <ul>
-        <li><a href=""><i class="fa fa-star" aria-hidden="true"></i> Ajouter</a></li>
+        <li (click)="addToFavorite()"><a><i class="fa fa-star" aria-hidden="true" id="favorite"></i> Ajouter</a></li>
         <li> <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i> Partager</a></li>
         <li><a href=""><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Signaler cette annonce</a></li>
       </ul>
     </div>
   </div>
-  <div class="add-map">add map</div>
+  <div class="add-map">
+      <div>
+        <p> <span><i class="fa fa-map-marker" aria-hidden="true"></i></span> Address short description</p>
+      </div>
+      <agm-map [latitude]="lat" [longitude]="lng">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map>
+  </div>
   <div class="safety-tip">
     <h5>SAFETY TIPS</h5>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, reprehenderit? </p>

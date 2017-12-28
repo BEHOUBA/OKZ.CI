@@ -3,44 +3,9 @@
     color: black;
 }
 
-
-#latest-ads{
-    margin-bottom: 400px;
-}
-
-.ad-img-pic{
-    height: 160px;
-}
-
-.ad-img-pic:hover{
-    opacity: 0.7;
-}
-
-.ad-item-box-y{
-    margin-top: 30px;
-    height: 300px;
-    background-color: rgb(230, 165, 165);
-    transition: box-shadow 0.6s;
-    border: 1px solid rgb(168, 168, 168);
-}
-
-.ad-item-box-y:hover{
-    box-shadow: 0 0 15px 0 rgba(0,0,0,0.20);
-}
-
 .ad-img{
     position: relative;
     text-align: center;
-}
-
-@media screen and (max-width: 470px){
-    .ad-img-pic{
-        width: 100%;
-        height: 200px;
-    }
-    .ad-item-box-y{
-        height: 320px;
-    }
 }
 
 .ad-location{
@@ -71,35 +36,4 @@
     color: white;
     background-color: rgb(216, 79, 79);
     padding: 1px 10px;
-}
-.ad-img img{
-    width: 100%;
-    max-height: 50%;
-}
-
-.ad-title{
-    margin: 10px 0px 10px 0px;
-}
-
-.ad-price h4{
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.ad-price p{
-    font-size: 11px;
-    font-weight: bold;
-}
-
-
-.btn-see-more{
-    margin: 40px auto;
-}
-
-.btn-see-more button{
-    background-color: rgb(216, 79, 79); 
-}
-
-.btn-see-more button:hover{
-    cursor: pointer;
 }

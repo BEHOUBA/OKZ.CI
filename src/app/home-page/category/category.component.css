@@ -10,10 +10,6 @@
     border-radius: 10px;
 }
 
-.cat-box:hover{
-    border: 1px solid rgb(216, 79, 79);
-}
-
 .cat-icon{
     padding-top: 20px;
 }

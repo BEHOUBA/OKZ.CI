@@ -18,6 +18,10 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { Route } from '@angular/router/src/config';
 import { AdsDetailsComponent } from './ads-details/ads-details.component';
 
+import { AgmCoreModule } from '@agm/core';
+import { ListingComponent } from './listing/listing-component/listing-component';
+import { ResultsSettingsComponent } from './listing/results-settings/results-settings.component';
+import { ArticlesListingComponent } from './listing/articles-listing/articles-listing.component';
 
 const routes: Route[] = [
   {path: '', component: HomePageComponent},
@@ -25,6 +29,7 @@ const routes: Route[] = [
   {path: 'post', component: PostAdComponent},
   {path: 'register', component: RegisterFormComponent},
   {path: 'article/:id', component: AdsDetailsComponent},
+  {path: 'listing/:id', component: ListingComponent},
   {path: '**', component: ErrorPageComponent}
 ];
 
@@ -43,11 +48,17 @@ const routes: Route[] = [
     PostAdComponent,
     RegisterFormComponent,
     ErrorPageComponent,
-    AdsDetailsComponent
+    AdsDetailsComponent,
+    ListingComponent,
+    ResultsSettingsComponent,
+    ArticlesListingComponent
   ],
   imports: [
   BrowserModule,
-  RouterModule.forRoot(routes)
+  RouterModule.forRoot(routes),
+  AgmCoreModule.forRoot({ 
+    apiKey:'AIzaSyAsqJeZrhg7IzpDbjftSkUUW5MuYrz4TAE'
+  })
   ],
   providers: [],
   bootstrap: [AppComponent]

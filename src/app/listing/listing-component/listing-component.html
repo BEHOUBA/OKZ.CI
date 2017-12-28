@@ -1,0 +1,55 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+  <div class="row bg-secondary">
+    <div class="col-sm-3">
+      setting box
+    </div>
+    <div class="col-sm-9">
+      <div class="clearfix my-3">
+        <div class="float-left btn-group btn-group-sm ml-5">
+          <button type="button" class="btn active">
+              <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+          </button>
+           <button type="button" class="btn">
+              <i class="fa fa-th fa-2x" aria-hidden="true"></i>
+           </button>  
+        </div>
+        <div class="float-right">
+          <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown">
+              Trier par:
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item">Plus Recents</a>
+              <a class="dropdown-item">Prix croissant</a>
+              <a class="dropdown-item">Prix decroissant</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <ul>
+          <li class="card my-3" *ngFor="let article of adCard">
+            <a routerLink="/article/:id">
+              <div class="row">
+                  <div class="col-md-3 my-2">
+                    <img class="card-img my-2 mx-2" src="../../assets/images/laptop.jpg" alt="">
+                  </div>
+                    <div class="col-md-9 my-2">
+                      <div class="my-2">
+                          <h3>Ads title goes here</h3>
+                          <h4>100.000 FCFA</h4>
+                          <p>(NON NEGOCIABLE)</p>
+                      </div>
+                    </div>
+                </div>
+                <span class="ad-condition my-3">OCCASION</span>
+                <span class="ad-location my-3">Abidjan, Il y a 1 heure</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
