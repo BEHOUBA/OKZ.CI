@@ -2,8 +2,11 @@
     text-decoration: none;
     color: black;
 }
-
-.ad-condition{
+#grid a {
+    text-decoration: none;
+    color: black;
+}
+.ad-condition-1{
     position: absolute;
     top: 0px;
     right:8px;
@@ -14,13 +17,50 @@
     padding: 1px 10px;
 }
 
-.ad-location{
+.ad-location-1{
     position: absolute;
     bottom: 0px;
     right: 8px;
     background: rgb(0,0,0,.4);
     font-weight: bold;
 }
-.dropdown-item{
-    width: auto
+
+.latest-ads-items a{
+    text-decoration: none;
+    color: black;
+}
+
+.ad-img{
+    position: relative;
+    text-align: center;
+}
+
+.ad-location-2{
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background: rgb(0,0,0,.4);
+    font-weight: bold;
+}
+.ad-duration{
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+}
+
+.ad-verified{
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgb(216, 79, 79);
+}
+.ad-condition-2{
+    position: absolute;
+    top: 8px;
+    left:0px;
+    font-size: 11px;
+    font-weight: 500;
+    color: white;
+    background-color: rgb(216, 79, 79);
+    padding: 1px 10px;
 }

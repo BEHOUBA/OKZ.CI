@@ -6,9 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ads-details.component.css']
 })
 export class AdsDetailsComponent implements OnInit {
+  adInfo: any[] = [0, 1, 2, 3, 4, 5, 6, 7];
   timer = setInterval(function(){
     const time = new Date().toLocaleTimeString() ;
-    document.getElementById('btn-timer').innerText = time;
+    const btnTimer = document.getElementById('btn-timer');
+    if (btnTimer) {
+      btnTimer.innerText = time;
+    }
   }, 1000);
 
   lat = 49.516086;

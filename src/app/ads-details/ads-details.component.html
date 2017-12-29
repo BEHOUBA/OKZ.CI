@@ -1,96 +1,187 @@
 <app-nav-bar></app-nav-bar>
-<div class="wrapper">
-  <div class="title">
-    <h3>Honda Civic 2017 Type R</h3>
-      <ul>
-        <li><i class="fa fa-map-marker" aria-hidden="true"></i> city name</li>
-        <li><i class="fa fa-clock-o" aria-hidden="true"></i> le 12 Decembre a 15h</li>
-      </ul>
-  </div>
-  <div class="seller">
-    <div class="seller-pic">
-      <img src="https://static.pexels.com/photos/160933/girl-rabbit-friendship-love-160933.jpeg" alt="">
+<app-home-search-field></app-home-search-field>
+<div class="wrapper bg-secondary p-3">
+  <div class="title row">
+    <div class="col-md-8 my-3">
+      <div>
+          <h3>Honda Civic 2017 Type R</h3>
+      </div>
+        <span class="mr-2"><i class="fa fa-map-marker" aria-hidden="true"></i> city name </span>
+        <span><i class="fa fa-clock-o" aria-hidden="true"></i> le 12 Decembre a 15h</span>
     </div>
-    <div>
-      <p>Mis en ligne par  <a href="">JHON DOE</a></p>
-      <p>Reputation: 
-        <span *ngFor="let star of ratingStars" class="fa fa-star fa-lg" [class.checked]="star" ></span>
-      </p>
-    </div>
-  </div>
-  <div class="carousel slide" data-ride="carousel" id="img-slider">
-    <ul class="carousel-indicators">
-      <li *ngFor="let imgUrl of imgUrls; index as i" data-target="#img-slider" data-slide-to="i"></li>
-    </ul>
-    <div class="loader"></div>
-  <div class="carousel-inner">
-      <div *ngFor="let imgUrl of imgUrls; index as i"  class="carousel-item" [class.active]="i === 0">
-        <img class="d-block w-100" [src]="imgUrl" >
-        <div class="carousel-caption">
-          <h3>Titre de l'image</h3>
-          <p>Description de l'image</p>
+    <div class="col-md-4 my-3 clearfix">
+        <div class="float-left mr-2">
+          <img class="rounded-circle" src="https://static.pexels.com/photos/160933/girl-rabbit-friendship-love-160933.jpeg" style="width:50px; height:50px" alt="">
+        </div>
+        <div>
+          <p>Mis en ligne par  <a href="">JHON DOE</a></p>
+          <p>Reputation: 
+            <span *ngFor="let star of ratingStars" class="fa fa-star fa-lg" [class.checked]="star" ></span>
+          </p>
         </div>
       </div>
-    </div>
-    <a class="carousel-control-prev" href="#img-slider" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Prev</span>
-    </a>
-    <a class="carousel-control-next" href="#img-slider" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
   </div>
-  <div class="ad-infos">
-    <div>
-        <button id="btn-timer">{{timer}}</button>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="carousel slide" data-ride="carousel" id="img-slider">
+          <ul class="carousel-indicators">
+            <li *ngFor="let imgUrl of imgUrls; index as i" data-target="#img-slider" data-slide-to="i"></li>
+          </ul>
+          <div class="loader"></div>
+        <div class="carousel-inner">
+            <div *ngFor="let imgUrl of imgUrls; index as i"  class="carousel-item" [class.active]="i === 0">
+              <img class="w-100" [src]="imgUrl" >
+              <div class="carousel-caption">
+                <h3>Titre de l'image</h3>
+                <p>Description de l'image</p>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#img-slider" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Prev</span>
+          </a>
+          <a class="carousel-control-next" href="#img-slider" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
     </div>
-    <div>
-      <button class="btn-price">500€</button>
-    </div> 
-    <div>
-        <p>CONDITION:</p>
-    </div>
-    <div>
-        <p>MARQUE: </p>
-    </div>
-    <div>
-        <p>MODEL: </p>
-    </div>
-    <div>
-      <p>LOCATION: </p>
-    </div>
-    <div>
-      <button class="btn-show-number">CLICK TO SHOW THE NUMBER</button> 
-    </div>
-    <div>
-      <button class="btn-bids">MAKE AN OFFER</button>
-    </div>  
-  </div>
-  <div class="description">
-    <div>
-        <h3>DESCRIPTION:</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quia deleniti sunt maiores magni alias impedit eveniet voluptatem voluptate, veritatis quasi provident ad eos et molestiae tempore temporibus! Doloremque fugit harum nihil reprehenderit quaerat. Ullam voluptas dicta assumenda cumque, ducimus repudiandae tempore fuga perspiciatis ex aspernatur, in rem officiis quae!</p>
-    </div>
-    <div class="ad-social">
-      <ul>
-        <li (click)="addToFavorite()"><a><i class="fa fa-star" aria-hidden="true" id="favorite"></i> Ajouter</a></li>
-        <li> <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i> Partager</a></li>
-        <li><a href=""><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Signaler cette annonce</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="add-map">
-      <div>
-        <p> <span><i class="fa fa-map-marker" aria-hidden="true"></i></span> Address short description</p>
+    <div class="col-md-4">
+      <div class="ad-infos">
+        <div class="mb-2">
+            <button id="btn-timer" class="btn btn-primary btn-block">{{timer}}</button>
+        </div>
+        <div class="my-2">
+          <button class="btn-price btn btn-primary btn-block">500€</button>
+        </div> 
+        <div>
+            <p>CONDITION:</p>
+        </div>
+        <div>
+            <p>MARQUE: </p>
+        </div>
+        <div>
+            <p>MODEL: </p>
+        </div>
+        <div>
+          <p>LOCATION: </p>
+        </div>
+        <div class="my-2">
+          <button class="btn-show-number btn btn-primary btn-block" data-toggle="modal" data-target="#phoneModal">CLICK TO SHOW THE NUMBER</button> 
+        </div>
+        
+        <div class="modal fade" id="phoneModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <div class="modal-header">
+                <h4 class="modal-title">Voici le pour vous le numero de Mr: JHON DOE</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <div class="modal-body text-center">
+                <h1>+225-45-00-16-85</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, saepe. Distinctio dolorem sed nam a sunt obcaecati nobis omnis, asperiores natus molestiae veritatis nesciunt odio dicta optio fugit fuga voluptates. Illum itaque ullam optio magnam fugiat libero ipsam ea impedit.</p>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fermer</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="my-2">
+          <button class="btn-bids btn btn-primary btn-block" data-toggle="modal" data-target="#offerModal">MAKE AN OFFER</button>
+          <div class="modal fade" id="offerModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+    
+                  <div class="modal-header text-center">
+                    <h4 class="modal-title">Faite grimper les encheres pour l'annonce de Mr: JHON DOE</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+    
+                  <div class="modal-body text-center">
+                    <form>
+                      <div class="form-group px-5">
+                          <label class="form-control" for="offer">MONTANT DE LA NOUVELLE OFFRE</label>
+                          <input id="offer" type="number" class="form-control" placeholder="COMBIEN OFFREZ VOUS">
+                      </div>
+                      <button class="btn btn-danger">PLACER MON OFFRE</button>
+                    </form>
+                  </div>
+    
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Annuler</button>
+                  </div>
+    
+                </div>
+              </div>
+            </div>
+        </div>  
       </div>
-      <agm-map [latitude]="lat" [longitude]="lng">
-          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-      </agm-map>
+      </div>
   </div>
-  <div class="safety-tip">
-    <h5>SAFETY TIPS</h5>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, reprehenderit? </p>
+  <div class="row my-4 description">
+    <div class="col-md-8">
+        <div>
+            <h3>DESCRIPTION:</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quia deleniti sunt maiores magni alias impedit eveniet voluptatem voluptate, veritatis quasi provident ad eos et molestiae tempore temporibus! Doloremque fugit harum nihil reprehenderit quaerat. Ullam voluptas dicta assumenda cumque, ducimus repudiandae tempore fuga perspiciatis ex aspernatur, in rem officiis quae!</p>
+        </div>
+      </div>
+      <div class="add-map col-md-4">
+          <div>
+            <p> <span><i class="fa fa-map-marker" aria-hidden="true"></i></span> Address short description</p>
+          </div>
+          <agm-map  [latitude]="lat" [longitude]="lng">
+              <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
+      </div>
+  </div>
+  <div class="row my-3">
+      <div class="col ad-social">
+          <ul class="nav">
+            <li class="nav-item mr-2" (click)="addToFavorite()"><a><i class="fa fa-star" aria-hidden="true" id="favorite"></i> Ajouter</a></li>
+            <li class="nav-item mr-2"> <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i> Partager</a></li>
+            <li class="nav-item"><a href=""><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Signaler cette annonce</a></li>
+          </ul>
+        </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col safety-tip">
+        <h5>SAFETY TIPS</h5>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, reprehenderit? </p>
+      </div>
+  </div>
+  <hr>
+  <div class="row mb-4">
+    <h2 class="col">Annoces similaires:</h2>
+  </div>
+  <div class="row">
+        <div class="col-sm-6 col-md-3 py-3" *ngFor="let x of adInfo">
+      <a routerLink="/article/:id" class="card py-2">
+        <div class="ad-item-box-y">
+            <div class="">
+              <img class="card-img-top" src="../assets/images/laptop.jpg" alt="image de l'annonce">
+              <span class="ad-location">Abidjan</span>
+              <span class="ad-duration">Il y a 1 heure</span>
+              <span class="ad-verified"><i class="fa fa-check-circle fa-lg" aria-hidden="true"></i></span>
+              <span class="ad-condition">OCCASION</span>
+            </div>
+            <div class="text-center card-body">
+              <h3 class="card-text">Ads title goes here</h3>
+                <h4>100.000 FCFA</h4>
+                <p>(NON NEGOCIABLE)</p>
+            </div>
+            
+        </div>
+      </a>
+    </div>
+</div>
+<div class="text-center mt-3">
+  <button class="btn btn-primary btn-sm" >VOIR PLUS</button>
   </div>
 </div>
 

@@ -1,193 +1,29 @@
-
-.wrapper{
-    display: grid;
-    padding: 5px;
-    background: rgb(99, 151, 202);
-    grid-template-columns: 1fr;
-    grid-template-rows: 75px auto 240px auto;
-    grid-column-gap: 10px;
-    grid-row-gap: 5px;
-
-}
-
-.checked{
-    color: rgb(248, 248, 45);
-}
-.seller{
-    display: grid;
-    padding: 10px;
-    grid-template-columns: 1fr 3fr;
-}
-.seller-pic{
-    width: 55px;
-    height: 55px;
-}
-.seller-pic img{
-    widows: 100%;
-    height: 100%;
-    border-radius: 50%;
-}
-.title h3{
-    font-size: 20px;
-}
-.title ul{
-    list-style: none;
-    padding-left: 0px;
-}
-.title li{
-    display: inline;
-    padding-right: 15px;
-}
-img{
-    width: 100%;
-    height: 240px;
-}
-.wrapper > div{
-    background-color: rgb(154, 113, 185);
-}
-.ad-infos{
-    padding: 15px;
-}
-
-.btn-show-number{
-    width: 100%;
-    padding: 20px;
-    border: 1px solid rgb(110, 85, 85);
-    background-color: rgb(170, 170, 211);
-    margin-bottom: 8px;
-}
-.btn-show-number:hover{
-    cursor: pointer;
-    background-color: rgb(230, 86, 86);
-}
-.btn-bids, #btn-timer{
-    width: 100%;
-    padding: 10px;
-    border: 1px solid rgb(110, 85, 85);
-    background-color: rgb(170, 170, 211);
-}
-.btn-price{
-    width: 100%;
-    padding: 5px;
-    border: 1px solid rgb(110, 85, 85);
-    background-color: rgb(170, 170, 211);
-    font-size: 30px;
-    margin-bottom: 10px;
-}
-.btn-bids:hover{
-    cursor: pointer;
-    background-color: rgb(230, 86, 86);
-}
-.description, .safety-tip, .title, .buy-opt{
-    padding: 10px;
-}
-.ad-social{
-    padding-top: 20px;
-    border-top: 1px solid rgb(59, 57, 57);
-    font-size: 15px;
-}
-.ad-social ul {
-    list-style: none;
-    padding-left: 0px;
-}
-.ad-social ul li {
-    display: inline;
-    padding-right: 10px;
-}
-
-.ad-social a {
+a{
     text-decoration: none;
-    color: rgb(59, 57, 57);
 }
-.ad-social a:hover{
-    cursor: pointer;
-}
-.add-map{
-    padding: 5%;
+.checked{
+    color: yellow;
 }
 agm-map{
     width: 100%;
-    height: 280px;
-}
-#loader{
-    position: absolute;
-    top: 45%;
-    left: 40%;
-    width: 30px;
-    height: 30px;
-    border: 5px solid blue;
-    border-radius: 50%;
-    animation: spin linear 2s infinite;
-    -webkit-animation: spin linear 2s infinite;
-}
-
-@-webkit-keyframes spin{
-    0% {-webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg)}
-}
-
-@keyframes spin {
-    0% {transform: rotate(0deg); }
-    100% {transform: rotate(360deg)}
+    height: 300px;
 }
 
 
 @media only screen and (min-width: 800px){
-    .wrapper{
-        display: grid;
-        margin: 30px 20px;
-        padding: 10px;
-        background: rgb(99, 151, 202);
-        grid-template-columns: 2fr 1fr;
-        grid-template-rows: 75px 420px auto 100px;
-        grid-column-gap: 20px;
-        grid-row-gap: 10px;
-    
-    }
-    img{
+    .carousel img{
         width: 100%;
-        height: 420px;
+        height: 400px;
     }
-    .wrapper > div{
-        background-color: rgb(154, 113, 185);
-    }
-    .seller p{
-        font-size: 14px;
-        margin-bottom: 6px;
+    .description{
+        height: 300px;
     }
     .add-map{
-        grid-column-start: 2;
-        /* autoprefixer: off */
-        grid-column-end: 3;
-        grid-row-start: 3;
-        /* autoprefixer: off */
-        grid-row-end: 5;
+        padding: 15px;
     }
     agm-map{
         width: 100%;
-        height: 80%;
+        height: 90%;
     }
-    #loader{
-        position: absolute;
-        top: 45%;
-        left: 45%;
-        width: 60px;
-        height: 60px;
-        border: 5px solid #f3f3f3;
-        border-top: 5px solid #3498db;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        -webkit-animation: spin 1s linear infinite;
-    }
-    
-    @-webkit-keyframes spin{
-        0% {-webkit-transform: rotate(0deg); }
-        100% { -webkit-transform: rotate(360deg)}
-    }
-    
-    @keyframes spin {
-        0% {transform: rotate(0deg); }
-        100% {transform: rotate(360deg)}
-    }
-    
+
 }

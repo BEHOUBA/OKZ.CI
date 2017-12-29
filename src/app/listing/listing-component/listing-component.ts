@@ -9,6 +9,15 @@ export class ListingComponent implements OnInit {
   adCard: any[] = [0, 1, 2, 3, 4, 5, 6, 7];
   constructor() { }
 
+
+  gridDisplay(){
+    document.getElementById('bar').style.display = 'none';
+    document.getElementById('grid').style.display = 'initial';
+  }
+  barDisplay(){
+    document.getElementById('grid').style.display = 'none';
+    document.getElementById('bar').style.display = 'initial';
+  }
   ngOnInit() {
   }
 
