@@ -1,32 +1,13 @@
 #main-top {
     background-color: cyan;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-#main-top a{
-    text-decoration: none;
-    color: black;
-}
-
-
-#main-top #nav-user{
-    text-align: right;
-}
 
 #post-ad-sm{
-    margin: 20px 30%;
     text-align: center;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
-
-#post-ad-lg a{
-    text-align: center;
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: red;
 }
 
 @media screen and ( min-width: 740px ) {
@@ -44,19 +25,23 @@
     #post-ad-lg {
         display: none;
     }
-    #post-ad-sm{
-        background: red;
-    }
+
     #nav-logo{
-        width: 50%;
+        width: 30%;
         float: left;
     }
-    #nav-user{
-        width: 50%;
+    .nav-user{
+        width: 70%;
         float: right;
     }
     .header a {
         text-decoration: none;
         color: black;
+    }
+    #main-top {
+        background-color: cyan;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
     }
 }

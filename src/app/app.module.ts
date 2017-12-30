@@ -22,6 +22,10 @@ import { AgmCoreModule } from '@agm/core';
 import { ListingComponent } from './listing/listing-component/listing-component';
 import { ResultsSettingsComponent } from './listing/results-settings/results-settings.component';
 import { ArticlesListingComponent } from './listing/articles-listing/articles-listing.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { UsageConditionsComponent } from './usage-conditions/usage-conditions.component';
 
 const routes: Route[] = [
   {path: '', component: HomePageComponent},
@@ -30,6 +34,10 @@ const routes: Route[] = [
   {path: 'register', component: RegisterFormComponent},
   {path: 'article/:id', component: AdsDetailsComponent},
   {path: 'listing/:id', component: ListingComponent},
+  {path: 'user/:id', component: UserProfileComponent},
+  {path: 'contact', component: ContactUsComponent},
+  {path: 'about', component: AboutUsComponent},
+  {path: 'conditions', component: UsageConditionsComponent},
   {path: '**', component: ErrorPageComponent}
 ];
 
@@ -51,13 +59,17 @@ const routes: Route[] = [
     AdsDetailsComponent,
     ListingComponent,
     ResultsSettingsComponent,
-    ArticlesListingComponent
+    ArticlesListingComponent,
+    UserProfileComponent,
+    ContactUsComponent,
+    AboutUsComponent,
+    UsageConditionsComponent
   ],
   imports: [
   BrowserModule,
   RouterModule.forRoot(routes),
-  AgmCoreModule.forRoot({ 
-    apiKey:'AIzaSyAsqJeZrhg7IzpDbjftSkUUW5MuYrz4TAE'
+  AgmCoreModule.forRoot({
+    apiKey: 'AIzaSyAsqJeZrhg7IzpDbjftSkUUW5MuYrz4TAE'
   })
   ],
   providers: [],

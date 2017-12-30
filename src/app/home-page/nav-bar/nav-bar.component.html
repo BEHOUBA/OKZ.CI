@@ -1,17 +1,29 @@
 <div class="header">
     <div class="navbar row" id="main-top">
         <div class="col" id="post-ad-lg" >
-          <a routerLink="/post">POST AD QUICKLY</a>
+          <a class="btn p-2 btn-info" routerLink="/post">POST AD QUICKLY</a>
         </div>
         <div class="col"  id="nav-logo" >
             <a routerLink="">LOGO</a>
         </div>
-        <div class="col" id="nav-user" >
-            <a routerLink="/login">USER ACCOUNT</a>
+        <div class="col nav-user"  style="display:none;">
+            <a class="btn p-2 btn-success" routerLink="/login">CONNEXION</a>
+        </div>
+        <div class="col nav-user">
+            <div class="dropdown float-right row">
+                <img class="rounded-circle mr-1" src="https://static.pexels.com/photos/160933/girl-rabbit-friendship-love-160933.jpeg" style="width:30px; height:30px">
+                    <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                        Username
+                        <div class="dropdown-menu float-left" >
+                            <a class="dropdown-item" href="#">COMPTE</a>
+                            <a class="dropdown-item" href="#">DECONNEXION</a>
+                        </div>
+                    </button>
+            </div>
         </div>
       </div>
       <div id="post-ad-sm">
-              <a routerLink="/post">POST AD</a>
+              <button class="btn btn-info" routerLink="/post">POST AD QUICKLY</button>
       </div>
 </div>
-
+     

@@ -1,5 +1,5 @@
 <app-nav-bar></app-nav-bar>
-<div class="wrapper bg-secondary p-3 mt-5">
+<div class="container bg-secondary p-3 mt-5">
   <div class="title row">
     <div class="col-md-8 my-3">
       <div>
@@ -13,7 +13,7 @@
           <img class="rounded-circle" src="https://static.pexels.com/photos/160933/girl-rabbit-friendship-love-160933.jpeg" style="width:50px; height:50px" alt="">
         </div>
         <div>
-          <p>Mis en ligne par  <a href="">JHON DOE</a></p>
+          <p>Mis en ligne par  <a routerLink="/user/:id">JHON DOE</a></p>
           <p>Reputation: 
             <span *ngFor="let star of ratingStars" class="fa fa-star fa-lg" [class.checked]="star" ></span>
           </p>
@@ -127,7 +127,7 @@
     <div class="col-md-8">
         <div>
             <h3>DESCRIPTION:</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quia deleniti sunt maiores magni alias impedit eveniet voluptatem voluptate, veritatis quasi provident ad eos et molestiae tempore temporibus! Doloremque fugit harum nihil reprehenderit quaerat. Ullam voluptas dicta assumenda cumque, ducimus repudiandae tempore fuga perspiciatis ex aspernatur, in rem officiis quae!</p>
+            <p class="font-weight-light" style="font-size: 23px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quia deleniti sunt maiores magni alias impedit eveniet voluptatem voluptate, veritatis quasi provident ad eos et molestiae tempore temporibus! Doloremque fugit harum nihil reprehenderit quaerat. Ullam voluptas dicta assumenda cumque, ducimus repudiandae tempore fuga perspiciatis ex aspernatur, in rem officiis quae!</p>
         </div>
       </div>
       <div class="add-map col-md-4">
@@ -183,5 +183,4 @@
   <button class="btn btn-primary btn-sm" >VOIR PLUS</button>
   </div>
 </div>
-
 <app-footer></app-footer>

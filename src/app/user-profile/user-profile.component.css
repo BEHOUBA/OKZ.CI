@@ -1,0 +1,18 @@
+
+.user-articles{
+    min-height: 100%;
+}
+.user-report a{
+    text-decoration: none;
+}
+
+
+.checked{
+    color: yellow;
+}
+
+@media only screen and (min-width: 780px){
+    .user-pic img{
+        height: 220px;
+    }
+}
