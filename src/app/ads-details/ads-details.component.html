@@ -71,7 +71,7 @@
         </div>
         
         <div class="modal fade" id="phoneModal">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
               <div class="modal-header">
@@ -94,7 +94,7 @@
         <div class="my-2">
           <button class="btn-bids btn btn-primary btn-block" data-toggle="modal" data-target="#offerModal">MAKE AN OFFER</button>
           <div class="modal fade" id="offerModal">
-              <div class="modal-dialog">
+              <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
     
                   <div class="modal-header text-center">
@@ -143,8 +143,65 @@
       <div class="col ad-social">
           <ul class="nav">
             <li class="nav-item mr-2" (click)="addToFavorite()"><a><i class="fa fa-star" aria-hidden="true" id="favorite"></i> Ajouter</a></li>
-            <li class="nav-item mr-2"> <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i> Partager</a></li>
-            <li class="nav-item"><a href=""><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Signaler cette annonce</a></li>
+            <li class="nav-item mr-2"> <a data-toggle="modal" data-target="#shareModal"><i class="fa fa-share-alt" aria-hidden="true"></i> Partager</a></li>
+              <div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="shareModal">Partager cette annonce avec des amis</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <ul class="nav nav-inline d-flex justify-content-center">
+                        <li class="nav-item mr-2"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></li>
+                        <li class="nav-item mr-2"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i></li>
+                        <li class="nav-item mr-2"><i class="fa fa-google-plus-square fa-3x" aria-hidden="true"></i></li>
+                        <li class="nav-item mr-2"><i class="fa fa-whatsapp fa-3x" aria-hidden="true"></i></li>
+                        <li class="nav-item"><i class="fa fa-envelope-o fa-3x" aria-hidden="true"></i></li>
+                      </ul>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <li class="nav-item"><a data-toggle="modal" data-target="#reportModal"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Signaler cette annonce</a></li>
+              <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header px-4">
+                      <h4 class="modal-title text-danger font-weight-light" id="reportModal">SIGNALER CETTE ANNOCE</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body px-4">
+                      <form>
+                        <div class="form-group">
+                          <label for="raison" style="font-size:20px">LE PROBLEME AVEC CETTE ANNOCE:</label>
+                          <select name="raison" id="raison" class="form-control" aria-placeholder="RAISONS">
+                            <option value="">SAGIT T'IL D'UNE ARNAQUE ?</option>
+                            <option value="">SAGIT T'IL D'UN OBJETS VOLÉ!</option>
+                            <option value="">SAGIT T'IL D'UN FAUSSE DESCRPTION DE L'ARTICLE!</option>
+                            <option value="">AUTRES...</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="text" style="font-size:20px">DESCRIPTION DU PROBLEME</label>
+                          <textarea name="" id="text" class="form-control" cols="30" rows="5"></textarea>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger">Signaler l'annonce</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </ul>
         </div>
   </div>
