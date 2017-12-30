@@ -1,193 +1,178 @@
 <app-nav-bar></app-nav-bar>
 
-<div class="container"  id="new-post">
-    <div class="title">
-        <p>FORMULAIRE A REMPLIR POUR POSTER VOTRE ANNOCE ON QUELQUE SECONDES</p>
+<div id="new-post" class="bg-secondary card">
+    <div class="title card-header text-center">
+        <h2>FORMULAIRE A REMPLIR POUR POSTER VOTRE ANNOCE ON QUELQUE SECONDES</h2>
     </div>
-    <form action="#" >
-        <ul>
-            <li class="all">
-                <label class="label-val" for="category">
-                    Categorie <span class="required"> * </span>
-                </label>
-                <div class="input-val">
-                    <select name="" id="category" (change)="hideElement()">
-                        Ville
-                        <option value="immobilier" >Immobilier</option>
-                        <option value="electronique">Electronique</option>
-                        <option value="job">Job</option>
-                        <option value="auto">Auto</option>
-                        <option value="etc" class="" >Etc</option>
-                    </select>
-                </div>
-            </li>
-            <li class="electronique auto">
-                <label class="label-val" for="ad-name">
-                        Nom de l'article <span class="required"> * </span>
-                </label>
-                <div class="input-val">
-                    <input type="text" name="" id="" placeholder="Nom de l'article">
-                </div>
-            </li>
-            <li class="job">
-                <label class="label-val" for="ad-name">
-                        Intitulé du poste <span class="required"> * </span>
-                </label>
-                <div class="input-val">
-                    <input type="text" name="" id="" placeholder="Nom de l'article">
-                </div>
-            </li>
-            <li class="electronique auto">
-                <label class="label-val" for="category">
-                        Marque
-                </label>
-                <div class="input-val">
-                    <input type="text" name="" id="" placeholder="Marque de l'article">
-                </div>
-            </li>
-            <li class="electronique auto">
-                <label class="label-val" for="category">
-                        Modèle
-                </label>
-                <div class="input-val">
-                    <input type="text" name="" id="" placeholder="Modele">
-                </div>
-            </li>
-            <li class="immobilier">
-                <label class="label-val" for="ad-name">
-                        Superficie
-                </label>
-                <div class="input-val">
-                    <input type="text" name="" id="" placeholder="Nom de l'article">
-                </div>
-            </li>
-            <li class="immobilier">
+    <form id="form-field" class="card-body" >
+        <div class="form-group all">
+            <label class="" for="category">
+                Categorie <span class="required"> * </span>
+            </label>
+            <select name="" id="category" class="form-control custom-select" (change)="hideElement()">
+                Ville
+                <option value="immobilier" >Immobilier</option>
+                <option value="electronique">Electronique</option>
+                <option value="job">Job</option>
+                <option value="auto">Auto</option>
+                <option value="etc" class="" >Etc</option>
+            </select>
+        </div>
+        <div class="form-group all">
+            <label class="label-val" for="ad-name">
+                    Nom de l'article <span class="required"> * </span>
+            </label>
+            <input class="form-control" type="text" name="" id="" placeholder="Nom de l'article">
+        </div>        
+        <div class="form-group">
+            <label class="label-val" for="ad-name">
+                Intitulé du poste <span class="required"> * </span>
+            </label>
+        <input class="form-control" type="text" name="" id="" placeholder="Nom de l'article">
+        </div>
+         <div class="form-group">
+            <label class="label-val" for="category">
+                Marque
+            </label>
+            <input class="form-control" type="text" name="" id="" placeholder="Marque de l'article">
+         </div>       
+        <div class="form-group electronique auto">
+            <label class="label-val" for="category">
+                    Modèle
+            </label>
+            <input class="form-control" type="text" name="" id="" placeholder="Modele">
+        </div>
+        <div class="form-group immobilier">
+            <label class="label-val" for="ad-name">
+                    Superficie
+            </label>
+            <input class="form-control" type="text" name="" id="" placeholder="Nom de l'article">
+        </div>
+            <div class="immobilier form-group">
                 <label class="label-val" for="ad-name">
                         Nombre de pieces
                 </label>
-                <div class="input-val">
-                    <input type="text" name="" id="" placeholder="Nom de l'article">
-                </div>
-            </li>
-            <li class="immobilier">
+                <input class="form-control" type="text" name="" id="" placeholder="Nom de l'article">
+            </div>
+            <div class="immobilier form-group">
                 <label class="label-val" for="ad-name">
                         Garage <span class="required"> * </span>
                 </label>
-                <div class="input-val">
-                    <input type="text" name="" id="" placeholder="Nom de l'article">
-                </div>
-            </li>
-            <li class="electronique auto">
+                <input class="form-control" type="text" name="" id="" placeholder="Nom de l'article">
+            </div>
+            <div class="electronique auto form-group">
                 <label class="label-val" for="type">
                     Type de vente <span class="required"> * </span>
                 </label>
-                <div class="input-val">
-                    <select name="" id="type">
-                        <option value="simple">Simple</option>
-                        <option value="enchere">Enchere</option>
-                    </select>
-                </div>
-            </li>
-            <li class="electronique auto">
+                <select class="form-control" name="" id="type">
+                    <option value="simple">Simple</option>
+                    <option value="enchere">Enchere</option>
+                </select>
+            </div>
+            <div class="electronique auto form-group">
                 <label class="label-val" for="category">
                         Condition <span class="required"> * </span>
                 </label>
-                <div class="input-val">
-                    <select name="" id="category">
-                        <option value="neuf">Neuf</option>
-                        <option value="occasion">Occasion</option>
-                    </select>
-                </div>
-            </li>
-            <li class="all">
+                <select class="form-control" name="" id="category">
+                    <option value="neuf">Neuf</option>
+                    <option value="occasion">Occasion</option>
+                </select>
+            </div>
+            <div class="all form-group">
                 <label class="label-val" for="category">
                         Ville <span class="required"> * </span>
                 </label>
-                <div class="input-val">
-                    <select name="" id="category">
-                        Ville
-                        <option value="abidjan">Abidjan</option>
-                        <option value="yamoussoukro">Yamoussoukro</option>
-                        <option value="bouaké">Bouaké</option>
-                        <option value="etc">Etc</option>
-                    </select>
-                </div>
-            </li>
-            <li class="all">
+                <select class="form-control" name="" id="category">
+                    Ville
+                    <option value="abidjan">Abidjan</option>
+                    <option value="yamoussoukro">Yamoussoukro</option>
+                    <option value="bouaké">Bouaké</option>
+                    <option value="etc">Etc</option>
+                </select>
+            </div>
+            <div class="all form-group">
                 <label class="label-val" for="category">
                         Address
                 </label>
-                <div class="input-val">
-                  <input type="text" name="" id="" placeholder="Address detaillé">
-                </div>
-            </li>
-            <li class="all">
+                <input class="form-control" type="text" name="" id="" placeholder="Address detaillé">
+            </div>
+            <div class="all form-group">
                 <label class="label-val" for="category">
                         Description
                 </label>
-                <div class="input-val">
-                    <textarea name="" id="" cols="30" rows="3" placeholder="Redigez une courte description de l'article" ></textarea>
-                </div>
-            </li>
-            <li class="electronique auto">
+                <textarea class="form-control" name="" id="" cols="30" rows="3" placeholder="Redigez une courte description de l'article" ></textarea>
+            </div>
+            <div class="electronique auto form-group">
                 <label class="label-val" for="category">
                         Prix
                 </label>
-                <div class="input-val">
-                    <input type="text" name="" id="" placeholder="Prix en FCFA">
+                <input class="form-control" type="text" name="" id="" placeholder="Prix en FCFA">
 
-                    <select name="Prix" id="">
-                        <option value="negociable">Negociable</option>
-                        <option value="non-negociable">Non negociable</option>
-                    </select>
-                </div>
-                
-            </li>
-            <li class="job">
+                <select class="form-control" name="Prix" id="">
+                    <option value="negociable">Negociable</option>
+                    <option value="non-negociable">Non negociable</option>
+                </select>
+            </div>
+            <div class="job form-group">
                 <label class="label-val" for="category">
                         Salaire
                 </label>
-                <div class="input-val">
-                    <input type="text" name="" id="" placeholder="en FCFA">
+                <input class="form-control" type="text" name="" id="" placeholder="en FCFA">
 
-                    <select name="Prix" id="">
-                        <option value="negociable">Negociable</option>
-                        <option value="non-negociable">Non negociable</option>
-                    </select>
-                </div>
-            </li>
-            <li class="all">
-                <label class="label-val" for="category">
-                        Ajouter des photos 
+                <select class="form-control" name="Prix" id="">
+                    <option value="negociable">Negociable</option>
+                    <option value="non-negociable">Non negociable</option>
+                </select>
+            </div>
+            <div class="all">
+                <label>
+                    Ajoutez des images:
                 </label>
-                <div class="input-val row picture">
-                    <input type="file" name="picture" class="upload-img col-sm" multiple>
-                    <input type="file" name="picture" class="upload-img col-sm" multiple>
-                    <input type="file" name="picture" class="upload-img col-sm" multiple>
-                    <input type="file" name="picture" class="upload-img col-sm" multiple>
-                </div>
-            </li>
-            <li class="all">
-                <label class="label-val" for="category">
+                <form class="row all">
+                    <label for="image1" class="upload-img col-md-3">
+                        <i class="fa fa-picture-o fa-5x" aria-hidden="true"></i> 
+                        <input id="image1" type="file" name="picture">
+                    </label>
+                    <label for="image2" class="upload-img col-md-3">
+                        <i class="fa fa-picture-o fa-5x" aria-hidden="true"></i> 
+                        <input id="image2" type="file" name="picture">
+                    </label>
+                    <label for="image3" class="upload-img col-md-3">
+                        <i class="fa fa-picture-o fa-5x" aria-hidden="true"></i> 
+                        <input id="image3" type="file" name="picture">
+                    </label>
+                </form>
+                <form class="row all">
+                    <label for="image4" class="upload-img col-md-3">
+                        <i class="fa fa-picture-o fa-5x" aria-hidden="true"></i> 
+                        <input id="image4" type="file" name="picture">
+                    </label>
+                    <label for="image5" class="upload-img col-md-3">
+                        <i class="fa fa-picture-o fa-5x" aria-hidden="true"></i> 
+                        <input id="image5" type="file" name="picture">
+                    </label>
+                    <label for="image6" class="upload-img col-md-3">
+                        <i class="fa fa-picture-o fa-5x" aria-hidden="true"></i> 
+                        <input id="image6" type="file" name="picture">
+                    </label>
+                </form>
+            </div>
+            <div class="all form-group">
+                <label for="category">
                         Numero de telephone
                 </label>
-                <div class="input-val">
-                    <input type="phone" placeholder="+225-XX-XX-XX-XX">
-                </div>
-            </li>
-            <li>
-            </li>
-            <li></li>
-            <li></li>
-        </ul>
-        <div class="agreement">
+                <input class="form-control" type="phone" placeholder="+225-XX-XX-XX-XX">
+            </div>
+            <div>
+            </div>
+        <div class="agreement all text-center">
             <label for="agreement">
                 <input type="checkbox" >
-                En cliquant sur "Poster une annoce", vous acceptez <a href="">les termes de l' accord d'utilisation</a> 
+                En cliquant sur "Poster", vous acceptez <a href="">les termes de l' accord d'utilisation</a> 
             </label>
         </div>
-        <div class="text-center">
-            <input type="button" value="Publier votre annoce">
+        <div class="text-center all">
+            <button type="button" class="btn btn-sm">PUBLIER</button>
         </div>
     </form>
 </div>
