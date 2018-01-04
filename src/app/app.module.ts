@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './home-page/nav-bar/nav-bar.component';
@@ -67,6 +68,7 @@ const routes: Route[] = [
   ],
   imports: [
   BrowserModule,
+  NgxPaginationModule,
   RouterModule.forRoot(routes),
   AgmCoreModule.forRoot({
     apiKey: 'AIzaSyAsqJeZrhg7IzpDbjftSkUUW5MuYrz4TAE'
