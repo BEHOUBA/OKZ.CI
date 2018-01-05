@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './home-page/nav-bar/nav-bar.component';
@@ -18,6 +21,8 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { Route } from '@angular/router/src/config';
 import { AdsDetailsComponent } from './ads-details/ads-details.component';
+import { CategoryService } from './category.service';
+import { environment } from './../environments/environment';
 
 import { AgmCoreModule } from '@agm/core';
 import { ListingComponent } from './listing/listing-component/listing-component';
@@ -72,9 +77,14 @@ const routes: Route[] = [
   RouterModule.forRoot(routes),
   AgmCoreModule.forRoot({
     apiKey: 'AIzaSyAsqJeZrhg7IzpDbjftSkUUW5MuYrz4TAE'
-  })
+  }),
+  AngularFireModule.initializeApp(environment.firebase),
+  AngularFireDatabaseModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    CategoryService
+  ],
+  bootstrap: [AppComponent],
+  exports: [AppComponent]
 })
 export class AppModule { }

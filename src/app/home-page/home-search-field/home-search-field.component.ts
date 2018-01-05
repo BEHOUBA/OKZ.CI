@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from './../../category.service';
+
 
 @Component({
   selector: 'app-home-search-field',
@@ -6,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-search-field.component.css']
 })
 export class HomeSearchFieldComponent implements OnInit {
-
-  constructor() { }
+  categories$;
+  constructor(categorieService: CategoryService) {
+    this.categories$ = categorieService.getCategories().valueChanges();
+  }
 
   ngOnInit() {
   }

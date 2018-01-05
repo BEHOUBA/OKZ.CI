@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from './../category.service';
 
 @Component({
   selector: 'app-post-ad',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-ad.component.css']
 })
 export class PostAdComponent implements OnInit {
-
-  constructor() { }
+  categories$;
+  constructor(categoryService: CategoryService) {
+    this.categories$ = categoryService.getCategories().valueChanges();
+   }
   hideElement() {
       const select = (<HTMLSelectElement>document.getElementById('category')) ;
       const selectedOption = select.options[select.selectedIndex].value;

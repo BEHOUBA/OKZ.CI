@@ -3,12 +3,11 @@
       <form class="form-inline row w-100 mx-4 my-0">
               <input type="text" class="form-control  col-sm mx-2 my-4" placeholder="Rechercher des annonces">
               <select name="" id="" class="form-control  col-sm mx-2 my-4">
-                <option selected>pick category</option>
-                <option >pick category</option>
-                <option >pick category</option>
+                <option selected>SECTIONNEZ UNE CATEGORIE</option>
+                <option *ngFor="let c of categories$ | async">{{c.title}}</option>
               </select>
               <select name="" id="" class="text-ali-center form-control col-sm mx-2 my-4">
-                  <option selected>pick category</option>
+                  <option selected>CHOISIR UNE LOCATITE</option>
                   <option>pick category</option>
                   <option>pick category</option>
               </select>

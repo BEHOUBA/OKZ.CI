@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { CategoryService } from './../../category.service';
 
 @Component({
   selector: 'app-category',
@@ -6,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-  cat: number[] = [1, 2, 3, 4, 5 , 6, 7, 8];
-  constructor() { }
-
+  categories$;
+  constructor(categoryService: CategoryService) {
+    this.categories$ = categoryService.getCategories().valueChanges();
+   }
   ngOnInit() {
   }
-
 }

@@ -50,7 +50,7 @@
       <hr>
       <div id="bar">
         <ul class="px-0">
-          <li class="card my-3 py-2" *ngFor="let article of adCard | paginate: { itemsPerPage: 5, currentPage: p }">
+          <li class="card my-3 py-2" *ngFor="let article of adCard | paginate: { itemsPerPage: 5, currentPage: page }">
             <a routerLink="/article/:id">
               <div class="row">
                   <div class="col-sm-3 my-2">
@@ -69,8 +69,8 @@
             </a>
           </li>
         </ul>
-        <div class="my-4 mx-auto">
-          <pagination-controls (pageChange)="p = $event"
+        <div class="my-4 mx-auto row">
+          <pagination-controls (pageChange)="page = $event"
                                 previousLabel="Precedent"
                                 nextLabel="Suivant"
           >
@@ -79,7 +79,7 @@
       </div>
       <div id="grid" style="display:none">
           <div class="row  mx-0">
-              <div class="col-sm-6 col-md-3 py-2 px-2" *ngFor="let article of adCard | paginate: { itemsPerPage: 5, currentPage: p }">
+              <div class="col-sm-6 col-md-3 py-2 px-2" *ngFor="let article of adCard | paginate: { itemsPerPage: 5, currentPage: page }">
                 <a routerLink="/article/:id" class="card py-2">
                   <div class="ad-item-box-y">
                       <div class="">
@@ -99,8 +99,8 @@
                 </a>
               </div>
           </div>
-          <div class="my-4 mx-auto">
-            <pagination-controls (pageChange)="p = $event"
+          <div class="my-4 mx-auto row">
+            <pagination-controls (pageChange)="page = $event"
                                   previousLabel="Precedent"
                                   nextLabel="Suivant"
             >

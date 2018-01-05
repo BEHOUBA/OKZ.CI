@@ -2,20 +2,11 @@
   <h1 class="display-4">Categories</h1>
   <h3 class="font-weight-light">Find out &amp; explore new businesses near your area and see what's happening !!!</h3>
   <div id="category-boxes" class="row my-5">
-    <div *ngFor="let c of cat" class="col-sm-6 col-md-3">
+    <div *ngFor="let c of categories$ | async" class="col-sm-6 col-md-3">
       <div class="cat-box card" >
           <div class="cat-icon">
-            <img src="../assets/icons/icons8-car-80.png" alt="">
-            <a href=""><h3>CATEGORY NAME</h3></a>
-          </div>
-          <div class="sub-cat">
-            <ul>
-              <li><a href="">House For Sale</a></li>
-              <li><a href="">House For Sale</a></li>
-              <li><a href="">House For Rent</a></li>
-              <li><a href="">House For Rent</a></li>
-              <li><a href="">House For Rent</a></li>
-            </ul>
+            <img [src]="c.imgUrl" alt="">
+            <a href=""><h3>{{ c.title }}</h3></a>
           </div>
         </div>
     </div>
