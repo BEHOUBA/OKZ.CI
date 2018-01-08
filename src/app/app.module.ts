@@ -23,6 +23,8 @@ import { Route } from '@angular/router/src/config';
 import { AdsDetailsComponent } from './ads-details/ads-details.component';
 import { CategoryService } from './category.service';
 import { environment } from './../environments/environment';
+import { LocationService } from './location.service';
+
 
 import { AgmCoreModule } from '@agm/core';
 import { ListingComponent } from './listing/listing-component/listing-component';
@@ -72,7 +74,7 @@ const routes: Route[] = [
     UsageConditionsComponent
   ],
   imports: [
-  BrowserModule,
+BrowserModule,
   NgxPaginationModule,
   RouterModule.forRoot(routes),
   AgmCoreModule.forRoot({
@@ -82,7 +84,8 @@ const routes: Route[] = [
   AngularFireDatabaseModule
   ],
   providers: [
-    CategoryService
+    CategoryService,
+    LocationService
   ],
   bootstrap: [AppComponent],
   exports: [AppComponent]

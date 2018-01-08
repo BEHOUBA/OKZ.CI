@@ -2,175 +2,128 @@
 
 <div id="new-post" class="bg-secondary card">
     <div class="title text-center">
-        <h2>FORMULAIRE A REMPLIR POUR POSTER VOTRE ANNOCE ON QUELQUE SECONDES</h2>
+        <h2>FORMULAIRE</h2>
     </div>
-    <form id="form-field" class="card-body" >
-        <div class="form-group all">
-            <label class="" for="category">
-                Categorie <span class="required"> * </span>
-            </label>
-            <select name="" id="category" class="form-control custom-select" (change)="hideElement()">
-                Ville
-                <option *ngFor="let c of categories$ | async " [value]="c.title | lowercase" >{{c.title}}</option>
-                
-            </select>
-        </div>
-        <div class="form-group all">
-            <label class="label-val" for="ad-name">
-                    Nom de l'article <span class="required"> * </span>
-            </label>
-            <input class="form-control" type="text" name="" id="" placeholder="Nom de l'article">
-        </div>        
-        <div class="form-group">
-            <label class="label-val" for="ad-name">
-                Intitulé du poste <span class="required"> * </span>
-            </label>
-        <input class="form-control" type="text" name="" id="" placeholder="Nom de l'article">
-        </div>
-         <div class="form-group">
-            <label class="label-val" for="category">
-                Marque
-            </label>
-            <input class="form-control" type="text" name="" id="" placeholder="Marque de l'article">
-         </div>       
-        <div class="form-group electronique auto">
-            <label class="label-val" for="category">
-                    Modèle
-            </label>
-            <input class="form-control" type="text" name="" id="" placeholder="Modele">
-        </div>
-        <div class="form-group immobilier">
-            <label class="label-val" for="ad-name">
-                    Superficie
-            </label>
-            <input class="form-control" type="text" name="" id="" placeholder="Nom de l'article">
-        </div>
-            <div class="immobilier form-group">
-                <label class="label-val" for="ad-name">
-                        Nombre de pieces
-                </label>
-                <input class="form-control" type="text" name="" id="" placeholder="Nom de l'article">
-            </div>
-            <div class="immobilier form-group">
-                <label class="label-val" for="ad-name">
-                        Garage <span class="required"> * </span>
-                </label>
-                <input class="form-control" type="text" name="" id="" placeholder="Nom de l'article">
-            </div>
-            <div class="electronique auto form-group">
-                <label class="label-val" for="type">
-                    Type de vente <span class="required"> * </span>
-                </label>
-                <select class="form-control" name="" id="type">
-                    <option value="simple">Simple</option>
-                    <option value="enchere">Enchere</option>
-                </select>
-            </div>
-            <div class="electronique auto form-group">
-                <label class="label-val" for="category">
-                        Condition <span class="required"> * </span>
-                </label>
-                <select class="form-control" name="" id="category">
-                    <option value="neuf">Neuf</option>
-                    <option value="occasion">Occasion</option>
-                </select>
-            </div>
-            <div class="all form-group">
-                <label class="label-val" for="category">
-                        Ville <span class="required"> * </span>
-                </label>
-                <select class="form-control" name="" id="category">
-                    Ville
-                    <option value="abidjan">Abidjan</option>
-                    <option value="yamoussoukro">Yamoussoukro</option>
-                    <option value="bouaké">Bouaké</option>
-                    <option value="etc">Etc</option>
-                </select>
-            </div>
-            <div class="all form-group">
-                <label class="label-val" for="category">
-                        Address
-                </label>
-                <input class="form-control" type="text" name="" id="" placeholder="Address detaillé">
-            </div>
-            <div class="all form-group">
-                <label class="label-val" for="category">
-                        Description
-                </label>
-                <textarea class="form-control" name="" id="" cols="30" rows="3" placeholder="Redigez une courte description de l'article" ></textarea>
-            </div>
-            <div class="electronique auto form-group">
-                <label class="label-val" for="category">
-                        Prix
-                </label>
-                <input class="form-control" type="text" name="" id="" placeholder="Prix en FCFA">
-
-                <select class="form-control" name="Prix" id="">
-                    <option value="negociable">Negociable</option>
-                    <option value="non-negociable">Non negociable</option>
-                </select>
-            </div>
-            <div class="job form-group">
-                <label class="label-val" for="category">
-                        Salaire
-                </label>
-                <input class="form-control" type="text" name="" id="" placeholder="en FCFA">
-
-                <select class="form-control" name="Prix" id="">
-                    <option value="negociable">Negociable</option>
-                    <option value="non-negociable">Non negociable</option>
-                </select>
-            </div>
+    <form  class="card-body" >
+        <div id="form-field">
             <div class="all">
-                <label>
-                    Ajoutez des images:
-                </label>
-                <form class="row all">
-                    <label for="image1" class="upload-img col-md-3">
-                        <i class="fa fa-picture-o fa-5x" aria-hidden="true"></i> 
-                        <input id="image1" type="file" name="picture">
-                    </label>
-                    <label for="image2" class="upload-img col-md-3">
-                        <i class="fa fa-picture-o fa-5x" aria-hidden="true"></i> 
-                        <input id="image2" type="file" name="picture">
-                    </label>
-                    <label for="image3" class="upload-img col-md-3">
-                        <i class="fa fa-picture-o fa-5x" aria-hidden="true"></i> 
-                        <input id="image3" type="file" name="picture">
-                    </label>
-                </form>
-                <form class="row all">
-                    <label for="image4" class="upload-img col-md-3">
-                        <i class="fa fa-picture-o fa-5x" aria-hidden="true"></i> 
-                        <input id="image4" type="file" name="picture">
-                    </label>
-                    <label for="image5" class="upload-img col-md-3">
-                        <i class="fa fa-picture-o fa-5x" aria-hidden="true"></i> 
-                        <input id="image5" type="file" name="picture">
-                    </label>
-                    <label for="image6" class="upload-img col-md-3">
-                        <i class="fa fa-picture-o fa-5x" aria-hidden="true"></i> 
-                        <input id="image6" type="file" name="picture">
-                    </label>
-                </form>
-            </div>
-            <div class="all form-group">
-                <label for="category">
-                        Numero de telephone
-                </label>
-                <input class="form-control" type="phone" placeholder="+225-XX-XX-XX-XX">
-            </div>
-            <div>
-            </div>
-        <div class="agreement all text-center">
-            <label for="agreement">
-                <input type="checkbox" >
-                En cliquant sur "Poster", vous acceptez <a href="">les termes de l' accord d'utilisation</a> 
-            </label>
+                    <div class="form-group">
+                        <label for="type">CHOISIR UNE OPTION</label>
+                        <select class="form-control" id="type">
+                            <option value="offre">OFFRE</option>
+                            <option value="demande">DEMANDE</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="all">
+                    <div class="form-group">
+                        <label for="location">CHOISIR UNE LOCALITE</label>
+                        <select class="form-control" id="location">
+                            <option *ngFor="let loc of locations">{{ loc | uppercase  }}</option>
+                        </select>
+                    </div> 
+                </div>
+                <div class="all">
+                    <div class="form-group">
+                        <label for="categories">CATEGORIES</label>
+                        <select class="form-control" id="categories" (change)="hideElements()">
+                            <option value="">choisir une categorie</option>
+                                <optgroup  *ngFor="let cat of localCategories" [label]="cat.title">
+                                    {{cat.title}}
+                                    <option *ngFor="let sub of cat.subCategories" [value]="cat.title | lowercase">{{sub}}</option>
+                                </optgroup>
+                        </select>
+                    </div>
+                </div>
+                <div class="all">
+                    <div class="form-group">
+                        <label for="title">DONNEZ UN TITRE A VOTRE ANNONCE</label>
+                        <input type="text" class="form-control" name="" id="title" required>
+                    </div> 
+                </div>
+                <div class="second electronique vetements interieur auto">
+                    <div class="form-group">
+                        <label for="condition">CONDITION</label>
+                        <select class="form-control" id="condition">
+                            <option>NEUF</option>
+                            <option>OCCASION</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="second electronique vetements interieur auto"> 
+                    <div class="form-group">
+                        <label for="marque">LA MARQUE</label>
+                        <input type="text" class="form-control" name="" id="marque">
+                    </div>
+                </div>
+                <div class="second electronique vetements interieur auto">
+                    <div class="form-group">
+                        <label for="model">LE MODEL</label>
+                        <input type="text" class="form-control" name="" id="model">
+                    </div>
+                </div>
+                <div class="second immobilier">
+                    <div class="form-group">
+                        <label for="pieces">NOMBRE DE PIECES</label>
+                        <input type="text" class="form-control" name="" id="pieces">
+                    </div> 
+                </div>
+                <div class="second immobilier">
+                    <div class="form-group">
+                        <label for="loyer">LOYER</label>
+                        <input type="text" class="form-control" name="" id="loyer">
+                    </div> 
+                </div>
+                <div class="second electronique vetements interieur auto">
+                    <div class="form-group">
+                        <label for="price">PRIX</label>
+                        <input type="text" class="form-control" name="" id="price">
+                    </div> 
+                </div>
+                <div class="second jobs">
+                    <div class="form-group">
+                        <label for="position">POST</label>
+                        <input type="text" class="form-control" name="" id="position">
+                    </div> 
+                </div>
+                <div class="second jobs">
+                    <div class="form-group">
+                        <label for="salary">SALAIRE</label>
+                        <input type="text" class="form-control" name="" id="salary">
+                    </div> 
+                </div>
+                <div class="second all">
+                    <div class="form-group">
+                        <label for="negociation">NEGOCIABLE</label>
+                        <select class="form-control" id="negociation">
+                            <option>NEGOCIABLE</option>
+                            <option>NON NEGOCIABLE</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="second electronique vetements interieur auto">
+                    <div class="form-group">
+                        <label for="bids">TYPE DE VENTE</label>
+                        <select class="form-control" id="bids" (change)="adType()">
+                            <option>VENTE DIRECTE</option>
+                            <option>ENCHERE</option>
+                        </select>
+                    </div>
+                </div>
+                <div *ngIf="isAuch">
+                    <div class="form-group">
+                        <label for="time">DUREE DE LA VENTE AUX ENCHERES</label>
+                        <input type="datetime-local" class="form-control" id="time">
+                    </div>
+                </div>
+                <div class="second all">
+                    <div class="form-group">
+                        <label for="description">DESCRIPTION</label>
+                        <textarea name="" id="description" class="form-control" cols="30" rows="5"></textarea>
+                    </div>
+                </div>
         </div>
-        <div class="text-center all">
-            <button type="button" class="btn btn-sm">PUBLIER</button>
-        </div>
+        <button type="button" class="btn btn-primary btn-lg btn-block">PUBLIER</button>
     </form>
 </div>
 <app-footer></app-footer>
