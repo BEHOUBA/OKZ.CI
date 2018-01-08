@@ -13,12 +13,12 @@ export class PostAdComponent implements OnInit {
   localCategories;
   isAuch: boolean;
 
-  adType(){
+  adType() {
     const select = (<HTMLSelectElement>document.getElementById('bids'));
     const selectedOption = select.options[select.selectedIndex].value.toLowerCase();
-    if (selectedOption === 'vente directe'){
+    if (selectedOption === 'vente directe') {
       this.isAuch = false;
-    } else{
+    } else {
       this.isAuch = true;
     }
   }
