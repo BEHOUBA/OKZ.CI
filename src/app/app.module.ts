@@ -5,6 +5,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -74,7 +75,8 @@ const routes: Route[] = [
     UsageConditionsComponent
   ],
   imports: [
-BrowserModule,
+  BrowserModule,
+  FormsModule,
   NgxPaginationModule,
   RouterModule.forRoot(routes),
   AgmCoreModule.forRoot({

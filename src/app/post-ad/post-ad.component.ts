@@ -28,7 +28,6 @@ export class PostAdComponent implements OnInit {
     const selectedOption = select.options[select.selectedIndex].value.toLowerCase();
     const list = document.getElementById('form-field').children;
     const elementsToHide = (document.getElementsByClassName(selectedOption));
-    console.log(selectedOption);
 
     for (let i = 0; i < list.length; i++) {
       if (list[i].classList.contains(selectedOption) || list[i].classList.contains('all')) {
@@ -46,5 +45,7 @@ export class PostAdComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  add(x) {
+    console.log(x.value);
+  }
 }

@@ -4,12 +4,12 @@
     <div class="title text-center">
         <h2>FORMULAIRE</h2>
     </div>
-    <form  class="form-group card-body" >
+    <form #form="ngForm" (ngSubmit)="add(form)"  class="form-group card-body" >
         <div id="form-field">
             <div class="all">
                     <div class="form-group">
                         <label for="type">CHOISIR UNE OPTION</label>
-                        <select class="form-control" id="type">
+                        <select ngModel name="type" class="form-control" id="type">
                             <option value="offre">OFFRE</option>
                             <option value="demande">DEMANDE</option>
                         </select>
@@ -18,7 +18,7 @@
                 <div class="all">
                     <div class="form-group">
                         <label for="location">CHOISIR UNE LOCALITE</label>
-                        <select class="form-control" id="location">
+                        <select ngModel name="location" class="form-control" id="location">
                             <option *ngFor="let loc of locations">{{ loc | uppercase  }}</option>
                         </select>
                     </div> 
@@ -26,7 +26,7 @@
                 <div class="all">
                     <div class="form-group">
                         <label for="categories">CATEGORIES</label>
-                        <select class="form-control" id="categories" (change)="hideElements()">
+                        <select ngModel name="category" class="form-control" id="categories" (change)="hideElements()">
                             <option value="">choisir une categorie</option>
                                 <optgroup  *ngFor="let cat of localCategories" [label]="cat.title">
                                     {{cat.title}}
@@ -38,13 +38,13 @@
                 <div class="all">
                     <div class="form-group">
                         <label for="title">DONNEZ UN TITRE A VOTRE ANNONCE</label>
-                        <input type="text" class="form-control" name="" id="title" required>
+                        <input ngModel name="title" type="text" class="form-control" id="title" required>
                     </div> 
                 </div>
                 <div class="second electronique vetements interieur auto">
                     <div class="form-group">
                         <label for="condition">CONDITION</label>
-                        <select class="form-control" id="condition">
+                        <select ngModel name="condition" class="form-control" id="condition">
                             <option>NEUF</option>
                             <option>OCCASION</option>
                         </select>
@@ -53,49 +53,49 @@
                 <div class="second electronique vetements interieur auto"> 
                     <div class="form-group">
                         <label for="marque">LA MARQUE</label>
-                        <input type="text" class="form-control" name="" id="marque">
+                        <input ngModel name="brand" type="text" class="form-control" id="marque">
                     </div>
                 </div>
                 <div class="second electronique vetements interieur auto">
                     <div class="form-group">
                         <label for="model">LE MODEL</label>
-                        <input type="text" class="form-control" name="" id="model">
+                        <input ngModel name="model" type="text" class="form-control" id="model">
                     </div>
                 </div>
                 <div class="second immobilier">
                     <div class="form-group">
                         <label for="pieces">NOMBRE DE PIECES</label>
-                        <input type="text" class="form-control" name="" id="pieces">
+                        <input ngModel name="pieces" type="text" class="form-control" id="pieces">
                     </div> 
                 </div>
                 <div class="second immobilier">
                     <div class="form-group">
                         <label for="loyer">LOYER</label>
-                        <input type="text" class="form-control" name="" id="loyer">
+                        <input ngModel name="rent" type="text" class="form-control" id="loyer">
                     </div> 
                 </div>
                 <div class="second electronique vetements interieur auto">
                     <div class="form-group">
                         <label for="price">PRIX</label>
-                        <input type="text" class="form-control" name="" id="price">
+                        <input ngModel name="price" type="text" class="form-control" id="price">
                     </div> 
                 </div>
                 <div class="second jobs">
                     <div class="form-group">
-                        <label for="position">POST</label>
-                        <input type="text" class="form-control" name="" id="position">
+                        <label for="position">POSTE</label>
+                        <input ngModel name="position" type="text" class="form-control" id="position">
                     </div> 
                 </div>
                 <div class="second jobs">
                     <div class="form-group">
                         <label for="salary">SALAIRE</label>
-                        <input type="text" class="form-control" name="" id="salary">
+                        <input ngModel name="salary" type="text" class="form-control" id="salary">
                     </div> 
                 </div>
                 <div class="second all">
                     <div class="form-group">
                         <label for="negociation">NEGOCIABLE</label>
-                        <select class="form-control" id="negociation">
+                        <select ngModel name="isNegociable" class="form-control" id="negociation">
                             <option>NEGOCIABLE</option>
                             <option>NON NEGOCIABLE</option>
                         </select>
@@ -104,7 +104,7 @@
                 <div class="second electronique vetements interieur auto">
                     <div class="form-group">
                         <label for="bids">TYPE DE VENTE</label>
-                        <select class="form-control" id="bids" (change)="adType()">
+                        <select ngModel name="isAuction" class="form-control" id="bids" (change)="adType()">
                             <option>VENTE DIRECTE</option>
                             <option>ENCHERE</option>
                         </select>
@@ -113,22 +113,22 @@
                 <div *ngIf="isAuch">
                     <div class="form-group">
                         <label for="time">DUREE DE LA VENTE AUX ENCHERES</label>
-                        <input type="datetime-local" class="form-control" id="time">
+                        <input ngModel name="duration" type="datetime-local" class="form-control" id="time">
                     </div>
                 </div>
                 <div class="second all">
                     <div class="form-group">
                         <label for="description">DESCRIPTION</label>
-                        <textarea name="" id="description" class="form-control" cols="30" rows="5"></textarea>
+                        <textarea ngModel name="description" id="description" class="form-control" cols="30" rows="5"></textarea>
                     </div>
                 </div>
         </div>
         <div class="form-check mt-4">
             <label class="form-check-label" for="defaultCheck1">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">Default checkbox Default checkbox Default checkbox
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">Default checkbox Default
             </label>
         </div>
-        <button type="button" class="btn btn-primary btn-lg btn-block my-4">PUBLIER</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block my-4">PUBLIER</button>
     </form>
 </div>
 <app-footer></app-footer>
