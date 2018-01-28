@@ -6,7 +6,9 @@
                 <option value="">choisir une categorie</option>
                 <optgroup  *ngFor="let cat of categories" [label]="cat.title">
                     {{cat.title | uppercase}}
-                    <option *ngFor="let sub of cat.subCategories" [value]="cat.title | lowercase">{{sub | uppercase}}</option>
+                    <option *ngFor="let sub of cat.subCategories" [value]="cat.title | lowercase">
+                        {{sub | uppercase}}
+                    </option>
                 </optgroup>
               </select>
               <select name="" id="" class="text-ali-center form-control col-sm mx-2 my-4">
