@@ -8,8 +8,27 @@
     display: none;
 }
 
-input[type="file"] {
-    display: none;
+.img-to-upload{
+    border: solid 1px rgb(57, 52, 61);
+    margin: 1.5px;
+    width: 75px;
+    height: 80px;
+}
+#images{
+    max-width: 100%;
+}
+
+#input{
+    opacity: 0;
+    width: 62px;
+    height: 60px;
+    cursor: pointer;
+}
+#img{
+    border-bottom: 4px solid;
+}
+#image-picker{
+    background: url('../../assets/images/icons8-camera-100.png')
 }
 
 @media screen and (max-width: 670px ) {
@@ -17,4 +36,6 @@ input[type="file"] {
        width: 90%;
        padding: 10px;
    }
+
 }
+

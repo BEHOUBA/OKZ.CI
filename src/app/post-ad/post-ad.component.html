@@ -119,10 +119,18 @@
                 <div class="second all">
                     <div class="form-group">
                         <label for="description">DESCRIPTION</label>
-                        <textarea ngModel name="description" id="description" class="form-control" cols="30" rows="5"></textarea>
+                        <textarea ngModel name="description" id="description" class="form-control" col-sms="30" rows="5"></textarea>
                     </div>
                 </div>
         </div>
+       <div id="images" class="">
+        <div class="btn" id="image-picker">
+            <input id="input"  (change)="addImages()" type="file" multiple>
+        </div>
+        <div class="row my-3" id="img">
+             
+        </div>
+       </div>
         <div class="form-check mt-4">
             <label class="form-check-label" for="defaultCheck1">
                 <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">Default checkbox Default

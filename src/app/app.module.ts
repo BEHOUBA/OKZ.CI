@@ -87,7 +87,7 @@ const routes: Route[] = [
   ],
   providers: [
     CategoryService,
-    LocationService
+    LocationService,
   ],
   bootstrap: [AppComponent],
   exports: [AppComponent]
