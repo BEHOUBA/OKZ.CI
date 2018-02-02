@@ -26,6 +26,7 @@ import { CategoryService } from './category.service';
 import { environment } from './../environments/environment';
 import { LocationService } from './location.service';
 import { UploadImagesService } from './upload-images.service';
+import { AdvertService } from './advert.service';
 
 
 import { AgmCoreModule } from '@agm/core';
@@ -90,6 +91,7 @@ const routes: Route[] = [
     CategoryService,
     LocationService,
     UploadImagesService,
+    AdvertService,
   ],
   bootstrap: [AppComponent],
   exports: [AppComponent]

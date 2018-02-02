@@ -3,6 +3,7 @@ import { CategoryService } from './../category.service';
 import { LocationService } from './../location.service';
 import { UploadImagesService } from '../upload-images.service';
 import { Image } from './../image';
+import { AdvertService } from '../advert.service';
 
 @Component({
   selector: 'app-post-ad',
@@ -54,20 +55,20 @@ export class PostAdComponent implements OnInit {
 
 
 // cette methode permet d'avoir un apercu des images a ajouter avec l'annonce.
-async addImages(){
-  this.inputSelector = (<HTMLInputElement>document.getElementById("input"));
-  this.imgPreviewer = document.getElementById("img");
+async addImages() {
+  this.inputSelector = (<HTMLInputElement>document.getElementById('input'));
+  this.imgPreviewer = document.getElementById('img');
 
-  if(this.imagesList.length + this.inputSelector.files.length <= 6 ){
-    var filesList = this.inputSelector.files;
-    
-    for(var i=0; i < filesList.length; i++){
-        if(/\.(jpg|png|jpeg|tif|tiff|gif|jpx)$/i.test(filesList[i].name)){
-          //var div = document.createElement("div");
-          //div.className = 'col-4'
+  if (this.imagesList.length + this.inputSelector.files.length <= 6 ) {
+    const filesList = this.inputSelector.files;
+
+    for (let i = 0; i < filesList.length; i++) {
+        if (/\.(jpg|png|jpeg|tif|tiff|gif|jpx)$/i.test(filesList[i].name)) {
+          // var div = document.createElement("div");
+          // div.className = 'col-4'
           await this.up.upload(filesList[i], 'behouba2', 1992);
-          var image = document.createElement("img");
-          var img = new Image();
+          const image = document.createElement('img');
+          const img = new Image();
           img.userName = 'behouba2';
           img.adId = 1992;
           img.fileName = filesList[i].name;
@@ -75,34 +76,43 @@ async addImages(){
           image.src = this.up.ImageUrl;
           image.className = 'img-to-upload';
           this.imgPreviewer.appendChild(image);
-          image.onclick = this.deleteImages; 
-          this.imagesList.push(img); 
+          image.onclick = this.deleteImages;
+          this.imagesList.push(img);
         } else {
-          alert("Le format d'image que vous avez choisi n'est pas supporté!");
+          alert('Le format d\'image que vous avez choisi n\'est pas supporté!');
         }
     }
   } else {
-    alert("Desolé mais vous ne pouvez pas ajouter plus de 6 photos");    
+    alert('Desolé mais vous ne pouvez pas ajouter plus de 6 photos');
   }
-  console.log(this.imagesList);
+  // console.log(this.imagesList);
 }
 
 // cette methode supprime les images lorsque l'utilisateur clique sur cette derniere.
 deleteImages = (e) => {
-  var tag = e.target
-  var indexOfTag = this.imagesList.indexOf(tag.src);
+  const tag = e.target;
+  let indexOfTag: number;
+  this.imagesList.forEach( (imageObj, index) => {
+    if ( tag.src === imageObj.url) {
+      indexOfTag = index;
+    }
+  });
   this.imgPreviewer.removeChild(tag);
-  var target = this.imagesList.splice(indexOfTag, 1);
-  console.log(this.imagesList);
+  const target = this.imagesList.splice(indexOfTag, 1);
+  // console.log(this.imagesList);
   this.up.cancelImage(target[0].fileName, target[0].userName, target[0].adId);
 }
 
 
-  constructor(categoryService: CategoryService, locationService: LocationService, private up: UploadImagesService) {
+  constructor(
+    private categoryService: CategoryService,
+    private locationService: LocationService,
+    private up: UploadImagesService,
+    private advertService: AdvertService) {
     this.categories$ = categoryService.getCategories().valueChanges();
     this.locations = locationService.locations;
     this.localCategories = categoryService.localCategories;
-    //this.upload = this.up;
+    // this.upload = this.up;
    }
 
   ngOnInit() {
@@ -110,9 +120,11 @@ deleteImages = (e) => {
 
 
   add(x) {
-    var adsData = x.value;
+    const adsData = x.value;
     adsData.images = this.imagesList;
-    console.log(adsData);
+    // console.log(adsData);
+    this.advertService.sentAdToFirebase(adsData);
+    console.log('data saved !');
   }
 
 }
