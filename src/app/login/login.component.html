@@ -11,15 +11,26 @@
         <div class="log-input my-2">
             <input type="password" placeholder="Mot de passe" class="form-control" >
         </div>
-        <div class="log-input mt-3">
-            <button class="btn login-btn btn-sm btn-block">CONNEXION</button>
-        </div>
         <div class="form-check my-3 text-center">
             <label class="form-check-label">
                 <input type="checkbox" class="form-check-input">
                 Rester connecté
             </label>
         </div>
+        <div class="log-input mt-3">
+            <button class="btn login-btn btn-sm btn-block">CONNEXION</button>
+        </div>
+        <div class="text-center my-3">
+            <div>
+              <p>connectez vous avec:</p>
+            </div>
+            <ul  class="nav justify-content-center">
+              <li class="nav-item mr-4"><a (click)="googleLogin()"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i>GOOGLE</a></li>
+              <li class="nav-item"><a routerLink=""><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
+                FACEBOOK
+              </a></li>
+            </ul>
+          </div>
         <div class="text-center">
             <a href="">Mot de pass oublié ?</a>
         </div>

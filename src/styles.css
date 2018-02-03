@@ -41,3 +41,7 @@ body {
     background-color: rgb(216, 79, 79);
     padding: 1px 10px;
 }
+
+a, button{
+    cursor: pointer;
+}

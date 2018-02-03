@@ -6,21 +6,23 @@
         <div class="col"  id="nav-logo" >
             <a routerLink=""><img src="../../assets/logo/okz-logo.png" alt="" style="height:35px"> </a>
         </div>
-        <div class="col nav-user"  style="display:none;">
-            <a class="btn p-2 btn-success" routerLink="/login">CONNEXION</a>
-        </div>
-        <div class="col nav-user">
-            <div class="dropdown float-right row">
-                <img class="rounded-circle mr-1" src="https://static.pexels.com/photos/160933/girl-rabbit-friendship-love-160933.jpeg" style="width:30px; height:30px">
-                    <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                        Username
-                        <div class="dropdown-menu float-left" >
-                            <a class="dropdown-item" href="#">COMPTE</a>
-                            <a class="dropdown-item" href="#">DECONNEXION</a>
-                        </div>
-                    </button>
+        <ng-template #login>
+            <div class="col nav-user" *ngIf="authService.user$ | async as user">
+                <div class="dropdown float-right row">
+                    <img class="rounded-circle mr-1" src="https://static.pexels.com/photos/160933/girl-rabbit-friendship-love-160933.jpeg" style="width:30px; height:30px">
+                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                        {{ user.displayName }}
+                            <div class="dropdown-menu float-left" >
+                                <a class="dropdown-item" href="#">COMPTE</a>
+                                <a class="dropdown-item" (click)="googleLogout()">DECONNEXION</a>
+                            </div>
+                        </button>
+                </div>
             </div>
-        </div>
+        </ng-template>
+            <div class="col nav-user rigth" *ngIf="!(authService.user$ | async); else login" >
+                <button class="btn p-2 btn-success float-right" routerLink="/login">CONNEXION</button>
+            </div>
       </div>
       <div id="post-ad-sm">
               <button class="btn btn-info" routerLink="/post">POST AD QUICKLY</button>

@@ -7,6 +7,6 @@ export class AdvertService {
   constructor(private db: AngularFireDatabase) { }
 
   sentAdToFirebase(ad) {
-    this.db.list('/Adverts').push(ad);
+    return this.db.list('/Adverts').push(ad);
   }
 }

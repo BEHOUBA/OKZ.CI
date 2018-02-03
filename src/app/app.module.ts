@@ -5,7 +5,10 @@ import { ModuleWithProviders } from '@angular/core';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FormsModule } from '@angular/forms';
+import { Route } from '@angular/router';
+import { CustomFormsModule } from 'ng2-validation';
 
 
 import { AppComponent } from './app.component';
@@ -20,13 +23,14 @@ import { LoginComponent } from './login/login.component';
 import { PostAdComponent } from './post-ad/post-ad.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
-import { Route } from '@angular/router/src/config';
 import { AdsDetailsComponent } from './ads-details/ads-details.component';
 import { CategoryService } from './category.service';
 import { environment } from './../environments/environment';
 import { LocationService } from './location.service';
 import { UploadImagesService } from './upload-images.service';
 import { AdvertService } from './advert.service';
+import { AuthService } from './auth.service';
+import { AuthGuardService } from './auth-guard.service';
 
 
 import { AgmCoreModule } from '@agm/core';
@@ -41,7 +45,7 @@ import { UsageConditionsComponent } from './usage-conditions/usage-conditions.co
 const routes: Route[] = [
   {path: '', component: HomePageComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'post', component: PostAdComponent},
+  {path: 'post', component: PostAdComponent, canActivate: [AuthGuardService]},
   {path: 'register', component: RegisterFormComponent},
   {path: 'article/:id', component: AdsDetailsComponent},
   {path: 'listing/:id', component: ListingComponent},
@@ -79,19 +83,23 @@ const routes: Route[] = [
   imports: [
   BrowserModule,
   FormsModule,
+  CustomFormsModule,
   NgxPaginationModule,
   RouterModule.forRoot(routes),
   AgmCoreModule.forRoot({
     apiKey: 'AIzaSyAsqJeZrhg7IzpDbjftSkUUW5MuYrz4TAE'
   }),
   AngularFireModule.initializeApp(environment.firebase),
-  AngularFireDatabaseModule
+  AngularFireDatabaseModule,
+  AngularFireAuthModule,
   ],
   providers: [
     CategoryService,
     LocationService,
     UploadImagesService,
     AdvertService,
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent],
   exports: [AppComponent]
