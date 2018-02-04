@@ -1,4 +1,4 @@
-
+<div id="snackbar">{{ notification }}</div>
 <div class="register-form">
 
     <div class="login-form card">
@@ -19,10 +19,10 @@
           <div class="log-input my-2">
               <div class="input-group">
                     <span class="input-group-addon">Tel +225</span>
-                    <input #phone="ngModel" ngModel name="phone" type="tel" placeholder="NUMERO DE TEL" minlength="8" class="form-control" />
+                    <input #phone="ngModel" ngModel name="phone" type="tel" placeholder="NUMERO DE TEL" minlength="8" class="form-control" number/>
               </div>
           </div>
-          <div class="alert alert-danger" *ngIf="phone.invalid && phone.touched" >
+          <div class="alert alert-danger" *ngIf="(phone.invalid && phone.touched) || phone.errors.number" >
                     Veillez entrez un numero de telephone valide afin de permettre a des personnes interressé par votre annonce de vous contacter !
            </div>
           <div class="log-input my-2">

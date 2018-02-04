@@ -31,6 +31,7 @@ import { UploadImagesService } from './upload-images.service';
 import { AdvertService } from './advert.service';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
+import { InfoSnackService } from './info-snack.service';
 
 
 import { AgmCoreModule } from '@agm/core';
@@ -99,7 +100,8 @@ const routes: Route[] = [
     UploadImagesService,
     AdvertService,
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    InfoSnackService
   ],
   bootstrap: [AppComponent],
   exports: [AppComponent]
