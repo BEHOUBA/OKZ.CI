@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,10 +10,11 @@ import { Router } from '@angular/router';
 
 export class AppComponent {
 
-  constructor(private authService: AuthService, private route: Router) {
+  constructor(private authService: AuthService, private route: Router, private aRoute: ActivatedRoute) {
     authService.user$.subscribe( user => {
-      if (user) {
-        const returnUrl = localStorage.getItem('returnUrl');
+      const currentUrl = this.aRoute.snapshot.queryParamMap.get('returnUrl');
+      const returnUrl = sessionStorage.getItem('returnUrl');
+      if (user && currentUrl === returnUrl) {
         route.navigateByUrl(returnUrl);
       }
     });

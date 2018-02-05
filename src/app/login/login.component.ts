@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray } from '@angular/forms/src/model';
 import { InfoSnackService } from './../info-snack.service';
-import { debug } from 'util';
 import { AuthGuardService } from './../auth-guard.service';
 import { AuthService } from './../auth.service';
 import * as firebase from 'firebase';

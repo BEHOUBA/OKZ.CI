@@ -21,9 +21,9 @@ export class AuthService {
    }
 
    googleLogin() {
-     let returnUrl: string;
-     returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
-     localStorage.setItem('returnUrl', returnUrl);
+    let returnUrl: string;
+    returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '';
+    sessionStorage.setItem('returnUrl', returnUrl);
      return this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
    }
 
@@ -33,7 +33,7 @@ export class AuthService {
 
    logOut() {
      this.afAuth.auth.signOut();
-     this.router.navigate(['/']);
+     this.router.navigate(['']);
    }
 
    createAccount(userEmail: string, userPassword: string) {

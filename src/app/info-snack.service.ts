@@ -9,8 +9,9 @@ export class InfoSnackService {
     let snack;
     if (!selector) {
      snack = document.getElementById('snackbar');
+    } else {
+      snack = document.getElementById(selector);
     }
-    snack = document.getElementById(selector);
     snack.className = 'show';
     setTimeout( function(){
       snack.className = snack.className.replace('show', '');
