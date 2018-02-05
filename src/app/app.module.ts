@@ -42,11 +42,13 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { UsageConditionsComponent } from './usage-conditions/usage-conditions.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Route[] = [
   {path: '', component: HomePageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'post', component: PostAdComponent, canActivate: [AuthGuardService]},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]}
   {path: 'register', component: RegisterFormComponent},
   {path: 'article/:id', component: AdsDetailsComponent},
   {path: 'listing/:id', component: ListingComponent},
@@ -79,7 +81,8 @@ const routes: Route[] = [
     UserProfileComponent,
     ContactUsComponent,
     AboutUsComponent,
-    UsageConditionsComponent
+    UsageConditionsComponent,
+    DashboardComponent
   ],
   imports: [
   BrowserModule,
