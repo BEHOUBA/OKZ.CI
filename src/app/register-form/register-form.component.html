@@ -19,20 +19,27 @@
           <div class="log-input my-2">
               <div class="input-group">
                     <span class="input-group-addon">Tel +225</span>
-                    <input #phone="ngModel" ngModel name="phone" type="tel" placeholder="NUMERO DE TEL" minlength="8" class="form-control" number/>
+                    <input #phone="ngModel" ngModel name="phoneNumber" type="text" placeholder="NUMERO DE TEL" minlength="8" class="form-control"/>
               </div>
           </div>
-          <div class="alert alert-danger" *ngIf="(phone.invalid && phone.touched) || phone.errors.number" >
+          <div class="alert alert-danger" *ngIf="phone.invalid && phone.touched" >
                     Veillez entrez un numero de telephone valide afin de permettre a des personnes interressé par votre annonce de vous contacter !
            </div>
           <div class="log-input my-2">
-              <input #password="ngModel" ngModel name="password" type="password" placeholder="Mot de passe" class="form-control" required>
+              <input #password="ngModel" ngModel name="password" minlength="6" type="password" placeholder="Mot de passe" class="form-control" required>
           </div>
           <div class="log-input my-2">
-             <input #ConfirmPassword="ngModel" ngModel name="ConfirmPassword" type="password" placeholder="Repeter le mot de passe" class="form-control" [equalTo]="password" >
+             <input #ConfirmPassword="ngModel" ngModel name="ConfirmPassword" minlength="6" type="password" placeholder="Repeter le mot de passe" class="form-control" [equalTo]="password" required>
           </div>
-          <div class="alert alert-danger" *ngIf="ConfirmPassword.errors?.equalTo && ConfirmPassword.touched">
+          <div *ngIf="ConfirmPassword.touched">
+            <div class="alert alert-danger"  *ngIf="ConfirmPassword.errors?.equalTo; else invalid">
                 Les mots de passe ne correspondent pas.
+            </div>
+            <ng-template #invalid >
+                <div class="alert alert-danger"  *ngIf="ConfirmPassword.invalid && password.invalid && !ConfirmPassword.errors?.equalTo" >
+                    Le mot de passe doit contenir au moins 6 caracteres.
+                </div> 
+            </ng-template>
             </div>
           <div class="form-check my-4">
               <label class="form-check-label text-center">
@@ -53,8 +60,8 @@
           <p>creer un compte avec:</p>
         </div>
         <ul  class="nav justify-content-center">
-          <li class="nav-item mr-4"><a routerLink=""><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i>GOOGLE</a></li>
-          <li class="nav-item"><a routerLink=""><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
+          <li class="nav-item mr-4"><a (click)="googleLogin()" ><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i>GOOGLE</a></li>
+          <li class="nav-item"><a (click)="facebookLogin()" ><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
             FACEBOOK
           </a></li>
         </ul>

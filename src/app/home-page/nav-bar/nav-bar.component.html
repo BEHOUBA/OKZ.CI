@@ -9,12 +9,12 @@
         <ng-template #login>
             <div class="col nav-user" *ngIf="authService.user$ | async as user">
                 <div class="dropdown float-right row">
-                    <img class="rounded-circle mr-1" src="https://static.pexels.com/photos/160933/girl-rabbit-friendship-love-160933.jpeg" style="width:30px; height:30px">
+                    <img *ngIf="user.photoURL" class="rounded-circle mr-1" [src]="user.photoURL" style="width:30px; height:30px">
                         <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                        {{ user.displayName }}
+                        {{ user.displayName | slice:0:15}}
                             <div class="dropdown-menu float-left" >
                                 <a class="dropdown-item" href="#">COMPTE</a>
-                                <a class="dropdown-item" (click)="googleLogout()">DECONNEXION</a>
+                                <a class="dropdown-item" (click)="logOut()">DECONNEXION</a>
                             </div>
                         </button>
                 </div>
@@ -25,7 +25,8 @@
             </div>
       </div>
       <div id="post-ad-sm">
-              <button class="btn btn-info" routerLink="/post">POST AD QUICKLY</button>
+              <button class="btn btn-info"  routerLink="/post">POST AD QUICKLY</button>
       </div>
 </div>
-     
+<div id="snackbar">{{ notification }}</div>
+ 

@@ -5,8 +5,12 @@ export class InfoSnackService {
 
   constructor() { }
 
-  displayInfo() {
-    const snack = document.getElementById('snackbar');
+  displayInfo(selector?: string) {
+    let snack;
+    if (!selector) {
+     snack = document.getElementById('snackbar');
+    }
+    snack = document.getElementById(selector);
     snack.className = 'show';
     setTimeout( function(){
       snack.className = snack.className.replace('show', '');

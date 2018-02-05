@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { FormArray } from '@angular/forms/src/model';
+import * as firebase from 'firebase';
+import { InfoSnackService } from './../info-snack.service';
 
 @Component({
   selector: 'app-register-form',
@@ -11,14 +13,77 @@ export class RegisterFormComponent {
   email: string;
   password: string;
   notification: string;
+  displayName: string;
+  phoneNumber: string;
+  user$: firebase.User;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private infoSnackService: InfoSnackService) { }
 
   createAccount(data: FormArray) {
     this.notification = this.authService.notification || 'Veillez reessayer s\'l vous plait';
     this.email = data.value.email;
     this.password = data.value.password;
-    console.log(data.value);
-    this.authService.createAccount(this.email, this.password);
+    this.displayName = data.value.displayName;
+    this.phoneNumber = data.value.phoneNumber;
+    this.authService.createAccount(this.email, this.password)
+    .then( user => {
+      user.updateProfile({
+        displayName: this.displayName,
+        phoneNumber: this.phoneNumber,
+      });
+      console.log(user);
+    }).then( ( ) => {
+      console.log('compte crée avec succes.');
+    }, (error) => {
+      console.log(error);
+      switch ( error.code ) {
+        case 'auth/invalid-email':
+        this.notification = 'Cette address email est desactivé';
+        break;
+        case 'auth/email-already-in-use':
+        this.notification = 'Ce compte existe deja';
+        break;
+        default:
+        this.notification = error.message;
+        break;
+      }
+      this.infoSnackService.displayInfo();
+
+    });
+  }
+  googleLogin() {
+    this.authService.googleLogin()
+    .then(user => {
+      console.log(user);
+    }, error => {
+      switch ( error.code ) {
+        case 'auth/network-request-failed':
+        this.notification = 'Erreur de connection: verifiez que vous etes bien connecté a internet.';
+        break;
+        default:
+      }
+      this.infoSnackService.displayInfo();
+    }).catch( error => {
+      if (!error) {
+        this.notification = 'Connexion en cours...';
+        this.infoSnackService.displayInfo();
+      }
+    });
+  }
+
+  facebookLogin(){
+    this.authService.facebookLogin()
+    .then( data => {
+      console.log(data);
+    }, error => {
+      switch ( error.code ) {
+        case 'auth/network-request-failed':
+        this.notification = 'Erreur de connection: verifiez que vous etes bien connecté a internet.';
+        break;
+        default:
+        this.notification = error.message;
+      }
+      this.infoSnackService.displayInfo();
+    });
   }
 }

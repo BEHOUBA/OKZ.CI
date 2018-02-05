@@ -4,6 +4,7 @@ import { LocationService } from './../location.service';
 import { UploadImagesService } from '../upload-images.service';
 import { Image } from './../image';
 import { AdvertService } from '../advert.service';
+import { InfoSnackService } from './../info-snack.service';
 
 @Component({
   selector: 'app-post-ad',
@@ -23,6 +24,7 @@ export class PostAdComponent implements OnInit {
   imagesList: Image[] = [];
   inputSelector;
   upload;
+  notification: string;
 
 // methode qui regle le type d'annonce ... j'ai l'intention de faire attendre pour plus tard la fonction de vente aux encheres.
   adType() {
@@ -79,11 +81,13 @@ async addImages() {
           image.onclick = this.deleteImages;
           this.imagesList.push(img);
         } else {
-          alert('Le format d\'image que vous avez choisi n\'est pas supporté!');
+          this.notification = 'Le format d\'image que vous avez choisi n\'est pas supporté!';
+          this.infoSnackService.displayInfo('snackBarP');
         }
     }
   } else {
-    alert('Desolé mais vous ne pouvez pas ajouter plus de 6 photos');
+    this.notification = 'Desolé mais vous ne pouvez pas ajouter plus de 6 photos';
+    this.infoSnackService.displayInfo('snackBarP');
   }
   // console.log(this.imagesList);
 }
@@ -108,7 +112,8 @@ deleteImages = (e) => {
     private categoryService: CategoryService,
     private locationService: LocationService,
     private up: UploadImagesService,
-    private advertService: AdvertService) {
+    private advertService: AdvertService,
+    private infoSnackService: InfoSnackService) {
     this.categories$ = categoryService.getCategories().valueChanges();
     this.locations = locationService.locations;
     this.localCategories = categoryService.localCategories;
