@@ -47,12 +47,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 const routes: Route[] = [
   {path: '', component: HomePageComponent},
   {path: 'login', component: LoginComponent},
+
   {path: 'post', component: PostAdComponent, canActivate: [AuthGuardService]},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]}
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]},
+  {path: 'user/:id', component: UserProfileComponent, canActivate: [AuthGuardService]},
+
   {path: 'register', component: RegisterFormComponent},
   {path: 'article/:id', component: AdsDetailsComponent},
   {path: 'listing/:id', component: ListingComponent},
-  {path: 'user/:id', component: UserProfileComponent},
   {path: 'contact', component: ContactUsComponent},
   {path: 'about', component: AboutUsComponent},
   {path: 'conditions', component: UsageConditionsComponent},

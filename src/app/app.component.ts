@@ -12,10 +12,14 @@ export class AppComponent {
 
   constructor(private authService: AuthService, private route: Router, private aRoute: ActivatedRoute) {
     authService.user$.subscribe( user => {
-      const currentUrl = this.aRoute.snapshot.queryParamMap.get('returnUrl');
-      const returnUrl = sessionStorage.getItem('returnUrl');
-      if (user && currentUrl === returnUrl) {
+      const currentUrl = this.route.url;
+      const returnUrl = sessionStorage.getItem('returnUrl') || '';
+      console.log(currentUrl);
+      console.log(returnUrl);
+      if (user && returnUrl) {
         route.navigateByUrl(returnUrl);
+      } else if ( user && currentUrl === '/register') {
+        route.navigate(['']);
       }
     });
    }
