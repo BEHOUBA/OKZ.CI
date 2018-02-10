@@ -6,6 +6,9 @@ body {
     text-decoration: none;
     color: black;
 }
+.img{
+    object-fit: cover;
+}
 
 .ad-img{
     position: relative;

@@ -11,6 +11,7 @@ import { Route } from '@angular/router';
 import { CustomFormsModule } from 'ng2-validation';
 
 
+
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './home-page/nav-bar/nav-bar.component';
 import { HomeSearchFieldComponent } from './home-page/home-search-field/home-search-field.component';
@@ -32,6 +33,8 @@ import { AdvertService } from './advert.service';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
 import { InfoSnackService } from './info-snack.service';
+import { GetAdsService } from './get-ads.service';
+
 
 
 import { AgmCoreModule } from '@agm/core';
@@ -54,7 +57,7 @@ const routes: Route[] = [
 
   {path: 'register', component: RegisterFormComponent},
   {path: 'article/:id', component: AdsDetailsComponent},
-  {path: 'listing/:id', component: ListingComponent},
+  {path: 'listing', component: ListingComponent},
   {path: 'contact', component: ContactUsComponent},
   {path: 'about', component: AboutUsComponent},
   {path: 'conditions', component: UsageConditionsComponent},
@@ -106,7 +109,8 @@ const routes: Route[] = [
     AdvertService,
     AuthService,
     AuthGuardService,
-    InfoSnackService
+    InfoSnackService,
+    GetAdsService,
   ],
   bootstrap: [AppComponent],
   exports: [AppComponent]

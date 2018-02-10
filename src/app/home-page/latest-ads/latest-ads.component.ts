@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetAdsService } from './../../get-ads.service';
 
 @Component({
   selector: 'app-latest-ads',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./latest-ads.component.css']
 })
 export class LatestAdsComponent implements OnInit {
-  adInfo: any[] = [0, 1, 2, 3, 4, 5, 6, 7];
-  constructor() { }
+  ads$;
+  constructor(private getAdsService: GetAdsService) {
+    this.ads$ = this.getAdsService.getAll(5);
+   }
 
   ngOnInit() {
   }

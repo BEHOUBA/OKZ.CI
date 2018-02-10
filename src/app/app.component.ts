@@ -18,7 +18,8 @@ export class AppComponent {
       console.log(returnUrl);
       if (user && returnUrl) {
         route.navigateByUrl(returnUrl);
-      } else if ( user && currentUrl === '/register') {
+        sessionStorage.setItem('returnUrl', '');
+      } else if ( user && (currentUrl === '/register' || currentUrl === '/login')) {
         route.navigate(['']);
       }
     });

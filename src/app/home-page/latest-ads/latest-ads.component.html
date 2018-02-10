@@ -6,22 +6,22 @@
     <h3 class="font-weight-light">Découvrez et explorez de nouvelles Annonces près de chez vous et voyez ce qui se passe !!!</h3>
   </div>
   <div class="latest-ads-items row">
-    <div class="col-sm-6 col-md-3 py-3" *ngFor="let x of adInfo">
+    <div class="col-sm-6 col-md-3 py-3" *ngFor="let ad of ads$ | async">
       <a routerLink="/article/:id" class="card py-2">
         <div class="ad-item-box-y">
             <div class="">
-              <img class="card-img-top" src="../assets/images/0341_ho_00_p_2048x1536.jpg" alt="image de l'annonce">
-              <span class="ad-location">Abidjan</span>
+              <img class="card-img-top" [src]="ad.images[0].url" alt="image de l'annonce">
+              <span class="ad-location">{{ad.location}}</span>
               <span class="ad-duration">Il y a 1 heure</span>
               <span class="ad-verified"><i class="fa fa-check-circle fa-lg" aria-hidden="true"></i></span>
-              <span class="ad-condition">OCCASION</span>
+              <span class="ad-condition">{{ad.condition}}</span>
             </div>
             <div class="text-center card-body">
-              <h3 class="card-text">Ads title goes here</h3>
-                <h4>100.000 FCFA</h4>
-                <p>(NON NEGOCIABLE)</p>
+              <h3 class="card-text">{{ad.title}}</h3>
+                <h4>{{ad.price}}</h4>
+                <p>{{ad.isNegociable}}</p>
             </div>
-            
+
         </div>
       </a>
     </div>

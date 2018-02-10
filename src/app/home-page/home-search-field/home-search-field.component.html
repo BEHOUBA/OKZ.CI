@@ -1,8 +1,16 @@
 <div class="text-center" id="search-field">
   <div class="navbar bg-secondary rounded">
-      <form class="form-inline row w-100 mx-4 my-0">
-              <input type="text" class="form-control  col-sm mx-2 my-4" placeholder="Rechercher des annonces">
-              <select name="" id="" class="form-control  col-sm mx-2 my-4">
+      <form #form="ngForm" name="form" class="form-inline row w-100 mx-4 my-0">
+              <input 
+              ngModel
+              name="query"
+              type="text" 
+              class="form-control  col-sm mx-2 my-4" 
+              placeholder="Rechercher des annonces">
+              <select 
+              ngModel 
+              name="category" id="" 
+              class="form-control  col-sm mx-2 my-4">
                 <option value="">choisir une categorie</option>
                 <optgroup  *ngFor="let cat of categories" [label]="cat.title">
                     {{cat.title | uppercase}}
@@ -11,11 +19,18 @@
                     </option>
                 </optgroup>
               </select>
-              <select name="" id="" class="text-ali-center form-control col-sm mx-2 my-4">
+              <select 
+              ngModel 
+              name="location" 
+              id="" 
+              class="text-ali-center form-control col-sm mx-2 my-4">
                   <option selected>CHOISIR UNE LOCATITE</option>
                   <option *ngFor="let loc of locations">{{ loc | uppercase }}</option>
               </select>
-              <a routerLink="/listing/:id" class="btn btn-primary form-control col mx-2 my-4">RECHERCHE</a>
+              <button 
+              (click)="setQueryParams(form.value)"
+              type="button" 
+              class="btn btn-primary form-control col mx-2 my-4">RECHERCHE</button>
       </form>
   </div>
 </div>
