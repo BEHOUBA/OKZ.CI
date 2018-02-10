@@ -37,8 +37,13 @@ export class ListingComponent implements OnInit {
   }
 
 
+  pageChange(e) {
+    this.page = e;
+    document.getElementById('adsField').scrollIntoView();
+  }
+
   gridDisplay() {
-    console.log(this.adsCard, this.filteredAds);
+    console.log(this.filteredAds);
     // console.log(this.title);
     // document.getElementById('bar').style.display = 'none';
     // document.getElementById('grid').style.display = 'initial';
