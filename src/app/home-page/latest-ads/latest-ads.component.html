@@ -7,7 +7,7 @@
   </div>
   <div class="latest-ads-items row">
     <div class="col-sm-6 col-md-3 py-3" *ngFor="let ad of ads$ | async">
-      <a routerLink="/article/:id" class="card py-2">
+      <a [routerLink]="['/article/', ad.key]" class="card py-2">
         <div class="ad-item-box-y">
             <div class="">
               <img class="card-img-top" [src]="ad.images[0].url" alt="image de l'annonce">

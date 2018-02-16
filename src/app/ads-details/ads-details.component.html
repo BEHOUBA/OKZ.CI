@@ -1,11 +1,12 @@
 <app-nav-bar></app-nav-bar>
-<div class="container bg-secondary p-3 mt-5">
+<div class="loader" *ngIf="!ad">Loading...</div>
+<div class="container bg-secondary p-3 mt-5" *ngIf="ad">
   <div class="title row">
     <div class="col-md-8 my-3">
       <div>
-          <h3>Honda Civic 2017 Type R</h3>
+          <h3>{{ ad.title | uppercase}}</h3>
       </div>
-        <span class="mr-2"><i class="fa fa-map-marker" aria-hidden="true"></i> city name </span>
+        <span class="mr-2"><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.location}}</span>
         <span><i class="fa fa-clock-o" aria-hidden="true"></i> le 12 Decembre a 15h</span>
     </div>
     <div class="col-md-4 my-3 clearfix">
@@ -24,16 +25,11 @@
     <div class="col-md-8">
       <div class="carousel slide" data-ride="carousel" id="img-slider">
           <ul class="carousel-indicators">
-            <li *ngFor="let imgUrl of imgUrls; index as i" data-target="#img-slider" data-slide-to="i"></li>
+            <li *ngFor="let imgUrl of ad.images; index as i" data-target="#img-slider" data-slide-to="i"></li>
           </ul>
-          <div class="loader"></div>
         <div class="carousel-inner">
-            <div *ngFor="let imgUrl of imgUrls; index as i"  class="carousel-item" [class.active]="i === 0">
-              <img class="w-100" [src]="imgUrl" >
-              <div class="carousel-caption">
-                <h3>Titre de l'image</h3>
-                <p>Description de l'image</p>
-              </div>
+            <div *ngFor="let imgUrl of ad.images; index as i"  class="carousel-item" [class.active]="i === 0">
+              <img class="w-100" [src]="imgUrl.url" >
             </div>
           </div>
           <a class="carousel-control-prev" href="#img-slider" role="button" data-slide="prev">
@@ -52,19 +48,19 @@
             <button id="btn-timer" class="btn btn-primary btn-block">{{timer}}</button>
         </div>
         <div class="my-2">
-          <button class="btn-price btn btn-primary btn-block">500€</button>
+          <button class="btn-price btn btn-primary btn-block">{{ad.price}}  FCFA</button>
         </div> 
-        <div>
-            <p>CONDITION:</p>
+        <div *ngIf="ad.conditon" >
+            <p>CONDITION: {{ ad.condition }}</p>
+        </div>
+        <div *ngIf="ad.brand">
+            <p>MARQUE: {{ ad.brand }}</p>
+        </div>
+        <div *ngIf="ad.model">
+            <p>MODEL: {{ ad.model }}</p>
         </div>
         <div>
-            <p>MARQUE: </p>
-        </div>
-        <div>
-            <p>MODEL: </p>
-        </div>
-        <div>
-          <p>LOCATION: </p>
+          <p>VILLE: {{ ad.location }} </p>
         </div>
         <div class="my-2">
           <button class="btn-show-number btn btn-primary btn-block" data-toggle="modal" data-target="#phoneModal">CLICK TO SHOW THE NUMBER</button> 
@@ -81,7 +77,6 @@
 
               <div class="modal-body text-center">
                 <h1>+225-45-00-16-85</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, saepe. Distinctio dolorem sed nam a sunt obcaecati nobis omnis, asperiores natus molestiae veritatis nesciunt odio dicta optio fugit fuga voluptates. Illum itaque ullam optio magnam fugiat libero ipsam ea impedit.</p>
               </div>
 
               <div class="modal-footer">
@@ -91,7 +86,7 @@
             </div>
           </div>
         </div>
-        <div class="my-2">
+        <!-- <div class="my-2">
           <button class="btn-bids btn btn-primary btn-block" data-toggle="modal" data-target="#offerModal">MAKE AN OFFER</button>
           <div class="modal fade" id="offerModal">
               <div class="modal-dialog modal-dialog-centered">
@@ -119,7 +114,7 @@
                 </div>
               </div>
             </div>
-        </div>  
+        </div>   -->
       </div>
       </div>
   </div>
@@ -127,7 +122,7 @@
     <div class="col-md-8">
         <div>
             <h3>DESCRIPTION:</h3>
-            <p class="font-weight-light" style="font-size: 23px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quia deleniti sunt maiores magni alias impedit eveniet voluptatem voluptate, veritatis quasi provident ad eos et molestiae tempore temporibus! Doloremque fugit harum nihil reprehenderit quaerat. Ullam voluptas dicta assumenda cumque, ducimus repudiandae tempore fuga perspiciatis ex aspernatur, in rem officiis quae!</p>
+            <p class="font-weight-light" style="font-size: 23px">{{ ad.description }}</p>
         </div>
       </div>
       <div class="add-map col-md-4">
@@ -207,7 +202,7 @@
   </div>
   <div class="row mt-4">
     <div class="col safety-tip">
-        <h5>SAFETY TIPS</h5>
+        <h5>RECOMMANDATIONS DE SURETE: </h5>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, reprehenderit? </p>
       </div>
   </div>
@@ -217,7 +212,7 @@
   </div>
   <div class="row">
         <div class="col-sm-6 col-md-3 py-3" *ngFor="let x of adInfo">
-      <a routerLink="/article/:id" class="card py-2">
+      <a [routerLink]="['/article/', ad.key]" class="card py-2">
         <div class="ad-item-box-y">
             <div class="">
               <img class="card-img-top" src="../assets/images/0341_ho_00_p_2048x1536.jpg" alt="image de l'annonce">

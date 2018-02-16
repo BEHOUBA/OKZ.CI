@@ -6,13 +6,11 @@ import { GetAdsService } from './../../get-ads.service';
   templateUrl: './latest-ads.component.html',
   styleUrls: ['./latest-ads.component.css']
 })
-export class LatestAdsComponent implements OnInit {
+export class LatestAdsComponent {
   ads$;
   constructor(private getAdsService: GetAdsService) {
-    this.ads$ = this.getAdsService.getAll(5);
-   }
-
-  ngOnInit() {
+    this.ads$ = this.getAdsService.getAll(5).snapshotChanges().map(changes => {
+      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+   });
   }
-
 }

@@ -23,14 +23,18 @@ export class ListingComponent implements OnInit {
 
   constructor(private getAdsService: GetAdsService, private route: ActivatedRoute) {
     this.getAdsService
-    .getAll()
+    .getAll(20)
+    .snapshotChanges()
+    .map(changes => {
+      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+   })
     .switchMap( ads => {
       this.adsCard = <Advert[]>ads;
       return route.queryParamMap;
     })
     .subscribe( params => {
       this.title = params.get('query');
-      this.filteredAds = (this.title !== null) ?
+      this.filteredAds = (this.title) ?
         this.adsCard.filter( ad => ad.title.toLowerCase().includes(this.title.toLowerCase())) :
         this.adsCard;
     });
@@ -43,7 +47,7 @@ export class ListingComponent implements OnInit {
   }
 
   gridDisplay() {
-    console.log(this.filteredAds);
+    console.log();
     // console.log(this.title);
     // document.getElementById('bar').style.display = 'none';
     // document.getElementById('grid').style.display = 'initial';

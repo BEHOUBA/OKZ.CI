@@ -24,7 +24,7 @@ export class HomeSearchFieldComponent implements OnInit, OnDestroy {
     locationService: LocationService,
     private getAdsService: GetAdsService,
     private router: Router) {
-      this.subscription = this.getAdsService.getAll().subscribe( ads =>
+      this.subscription = this.getAdsService.getAll().snapshotChanges().subscribe( ads =>
         this.adsCard = this.filteredAdsList = ads
       );
     this.categories = categorieService.localCategories;
